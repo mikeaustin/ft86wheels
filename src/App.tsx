@@ -1,46 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { apply, uniq, min, max } from 'rambda';
 
 import './App.css';
 
-const wheelColors = [
-  'Matte Gunmetal',
-  'Silver',
-  'Anthracite',
-  'Black',
-  'Gray',
-];
-
-const wheels = [
-  {
-    title: 'Enkei Racing RS05RR', image: 'ENKEI-RS05RR-GM-190-WEB.png', colors: [0, 1], details: [
-      { size: 18, width: 8.5, inset: 42, price: 500 },
-      { size: 18, width: 8.5, inset: 50, weight: 18.12, price: 500 },
-      { size: 18, width: 9, inset: 40, price: 500 },
-      { size: 18, width: 9.5, inset: 43, price: 500 },
-    ]
-  },
-  {
-    title: 'Enkei Racing GTC01RR', image: 'ENKEI-GTR-GM-186-WEB.jpg', colors: [0], details: [
-      { size: 18, width: 8.5, inset: 42, price: 550 },
-      { size: 18, width: 9, inset: 40, price: 550 },
-      { size: 18, width: 9.5, inset: 35, price: 550 },
-    ]
-  },
-  {
-    title: 'APEX ARC-8', image: '18-arc8-5120-smbk-profile1_3.png', colors: [2, 1, 3], details: [
-      { size: 18, width: 8.5, inset: 42, price: 550 },
-      { size: 18, width: 9, inset: 40, price: 550 },
-      { size: 18, width: 9.5, inset: 35, price: 550 },
-    ]
-  },
-  {
-    title: 'O.Z. Racing Hyper GT HLT', image: '02_HyperGT-hlt-Star-Graphite-jpg-100x750-2.png', colors: [4, 3], details: [
-      { size: 18, width: 8.5, inset: 42, price: 550 },
-      { size: 18, width: 9, inset: 40, price: 550 },
-      { size: 18, width: 9.5, inset: 35, price: 550 },
-    ]
-  },
-];
+import products from './data/products';
+import productColors from './data/productColors';
 
 const View = ({
   flex,
@@ -65,10 +29,34 @@ const Text = ({ children, ...props }: any) => {
   );
 };
 
-const Product = ({ title, image, colors, expanded }: any) => {
+interface ProductProps {
+  title: string;
+  image: string;
+  colors: number[];
+  details: {
+    size: number;
+    width: number;
+    inset: number;
+    price: number;
+  }[];
+  expanded: boolean;
+}
+
+const Product = ({ title, image, colors, details }: ProductProps) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const widths = uniq(details.map(detail => detail.width));
+  const prices = uniq(details.map(detail => detail.price));
+  const minPrice = apply(Math.min, prices);
+  const maxPrice = apply(Math.max, prices);
+
   return (
     <View className={'notched'}>
-      <View horizontal style={{ background: 'white', paddingLeft: 16 }}>
+      <View
+        horizontal
+        style={{ background: 'white', paddingLeft: 16, cursor: 'pointer' }}
+        onClick={() => setIsExpanded(isExpanded => !isExpanded)}
+      >
         <img width={150} src={`images/${image}`} />
         <View flex style={{ padding: '24px 16px' }}>
           <Text style={{ fontSize: 24, fontFamily: 'Bebas Neue' }}>{title}</Text>
@@ -77,7 +65,7 @@ const Product = ({ title, image, colors, expanded }: any) => {
             <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase' }}>Colors</Text>
             <View horizontal style={{ gap: 8 }}>
               {colors.map((color: any) => (
-                <Text style={{ fontSize: 14, fontWeight: 600 }}>{wheelColors[color]}</Text>
+                <Text style={{ fontSize: 14, fontWeight: 600 }}>{productColors[color]}</Text>
               ))}
             </View>
           </View>
@@ -89,7 +77,11 @@ const Product = ({ title, image, colors, expanded }: any) => {
             </View>
             <View>
               <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase' }}>Width</Text>
-              <Text style={{ fontSize: 14, fontWeight: 600 }}>8.5&nbsp;&nbsp;9.0&nbsp;&nbsp;9.5</Text>
+              <View horizontal style={{ gap: 8 }}>
+                {widths.map(width => (
+                  <Text style={{ fontSize: 14, fontWeight: 600 }}>{width}</Text>
+                ))}
+              </View>
             </View>
             <View>
               <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase' }}>Weight</Text>
@@ -99,10 +91,14 @@ const Product = ({ title, image, colors, expanded }: any) => {
         </View>
         <div style={{ width: 1, background: '#343a40', margin: '8px 0' }} />
         <View style={{ padding: '16px 24px', justifyContent: 'center' }}>
-          <Text style={{ fontFamily: 'Bebas Neue', fontSize: 24 }}>$500</Text>
+          <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase' }}>Min</Text>
+          <Text style={{ fontFamily: 'Bebas Neue', fontSize: 24 }}>${minPrice}</Text>
+          <View style={{ height: 8 }} />
+          <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase' }}>Max</Text>
+          <Text style={{ fontFamily: 'Bebas Neue', fontSize: 24 }}>${maxPrice}</Text>
         </View>
       </View>
-      {expanded && (
+      {isExpanded && (
         <View horizontal style={{ background: '#f1f3f5' }}>
           <View>
             <View horizontal style={{ padding: '16px 24px 4px 24px', borderTop: '1px solid #dee2e6', borderBottom: '1px solid #dee2e6' }}>
@@ -120,8 +116,8 @@ const Product = ({ title, image, colors, expanded }: any) => {
               <Text style={{ fontSize: 16, opacity: 0.5 }}>Available Colors</Text>
             </View>
             <View horizontal style={{ flex: 1, background: 'white', padding: '4px 0 4px 12px' }}>
-              <img width={100} src={`images/ENKEI-RS05RR-GM-189-WEB.jpg`} alt="Matte Gunmetal" style={{ objectFit: 'contain' }} />
-              <img width={100} src={`images/ENKEI-RS05RR-SP-163-WEB.jpg`} alt="Sparkle Silver" style={{ objectFit: 'contain' }} />
+              <img width={100} src={`images/ENKEI-RS05RR-GM-190-WEB.png`} alt="Matte Gunmetal" style={{ objectFit: 'contain' }} />
+              <img width={100} src={`images/ENKEI-RS05RR-SP-164-WEB.jpg`} alt="Sparkle Silver" style={{ objectFit: 'contain' }} />
             </View>
           </View>
         </View>
@@ -130,10 +126,67 @@ const Product = ({ title, image, colors, expanded }: any) => {
   );
 };
 
-function App() {
+interface FilterProps {
+  title: string;
+  options: {
+    label: string;
+    value: number;
+  }[];
+  selectedOptions: number[];
+  onSelect: (value: number) => void;
+  onClear: () => void;
+}
+
+const Filter = ({ title, options, selectedOptions, onSelect, onClear }: FilterProps) => {
   return (
-    <div className="App" style={{ display: 'flex', maxWidth: 1000, margin: 'auto' }}>
-      <aside style={{ position: 'sticky', width: 256, padding: 8, paddingRight: 0 }}>
+    <View>
+      <Text style={{ color: 'white', padding: '0px 8px 0 0px', fontFamily: 'Bebas Neue', fontSize: 24 }}>{title}</Text>
+      <View style={{ height: 8 }} />
+      <Text
+        style={{
+          color: selectedOptions.length !== 0 ? 'white' : undefined,
+          fontWeight: selectedOptions.length === 0 ? 700 : undefined,
+          padding: '8px 16px',
+          background: selectedOptions.length === 0 ? 'white' : undefined,
+          cursor: 'pointer',
+        }}
+        className="notched"
+        onClick={() => onClear()}
+      >
+        All
+      </Text>
+      {options.map(option => (
+        <Text
+          style={{
+            color: !selectedOptions.includes(option.value) ? 'white' : undefined,
+            fontWeight: selectedOptions.includes(option.value) ? 700 : undefined,
+            padding: '8px 16px',
+            background: selectedOptions.includes(option.value) ? 'white' : undefined,
+            marginBottom: 1,
+            cursor: 'pointer',
+          }}
+          className="notched"
+          onClick={() => onSelect(option.value)}
+        >
+          {option.label}
+        </Text>
+      ))}
+    </View>
+  );
+};
+
+const productBrands = [
+  { label: 'Enkei Racing', value: 0 },
+  { label: 'O.Z. Racing', value: 1 },
+  { label: 'APEX Wheels', value: 2 },
+];
+
+function App() {
+  const [brands, setBrands] = useState<number[]>([0, 1]);
+
+  return (
+    <div className="App" style={{ display: 'flex', maxWidth: 1024, margin: 'auto', alignItems: 'flex-start' }}>
+      <aside style={{ position: 'sticky', top: 0, width: 256, padding: 8, paddingRight: 0 }}>
         <Text style={{ color: 'white', padding: '0px 8px 0 0px', fontFamily: 'Bebas Neue', fontSize: 24 }}>Color</Text>
         <View style={{ height: 8 }} />
         <Text style={{ color: 'black', fontWeight: 700, padding: '8px 16px', background: 'white' }} className="notched">All</Text>
@@ -152,6 +205,8 @@ function App() {
         <Text style={{ color: 'white', padding: '8px 16px' }}>8.0"</Text>
         <Text style={{ color: 'black', fontWeight: 700, padding: '8px 16px', background: 'white' }} className="notched">8.5"</Text>
         <Text style={{ color: 'white', padding: '8px 16px' }}>9.0"</Text>
+        <View style={{ height: 8 }} />
+        <Filter title="Brands" options={productBrands} selectedOptions={brands} onSelect={(brand) => setBrands([...brands, brand])} onClear={() => setBrands([])} />
       </aside>
       <View flex as="main" style={{ padding: 8, rowGap: 8 }}>
         {/* <View horizontal>
@@ -160,8 +215,8 @@ function App() {
             <option>Sort by Weight</option>
           </select>
         </View> */}
-        {wheels.map((product, index) => (
-          <Product title={product.title} image={product.image} colors={product.colors} expanded={index === 0} />
+        {products.map((product, index) => (
+          <Product title={product.title} image={product.image} colors={product.colors} details={product.details} expanded={index === 0} />
         ))}
       </View>
     </div>

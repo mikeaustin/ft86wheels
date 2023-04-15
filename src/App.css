@@ -1,0 +1,13 @@
+.App {
+  min-height: 100vh;
+  background-color: #282c34;
+  background-color: #343a40;
+}
+
+.notched {
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+
+.notched-small {
+  clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+}

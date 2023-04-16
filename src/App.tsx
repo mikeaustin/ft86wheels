@@ -200,8 +200,16 @@ const productBrands = [
   { label: 'APEX Wheels', value: 2 },
 ];
 
+const productWidths = [
+  { label: '8"', value: 8 },
+  { label: '8.5"', value: 8.5 },
+  { label: '9"', value: 9 },
+  { label: '9.5"', value: 9.5 },
+];
+
 function App() {
   const [brands, setBrands] = useState<number[]>([]);
+  const [widths, setWidths] = useState<number[]>([]);
 
   return (
     <div className="App" style={{ display: 'flex', maxWidth: 1024, margin: 'auto', alignItems: 'flex-start' }}>
@@ -219,14 +227,16 @@ function App() {
         <Text style={{ color: 'white', padding: '8px 16px' }}>17"</Text>
         <Text style={{ color: 'black', fontWeight: 700, padding: '8px 16px', background: 'white' }} className="notched">18"</Text>
         <View style={{ height: 8 }} />
-        <Text style={{ color: 'white', padding: '8px 8px 0 0px', fontFamily: 'Bebas Neue', fontSize: 24 }}>Width</Text>
-        <View style={{ height: 4 }} />
-        <Text style={{ color: 'white', padding: '8px 16px' }}>8.0"</Text>
-        <Text style={{ color: 'black', fontWeight: 700, padding: '8px 16px', background: 'white' }} className="notched">8.5"</Text>
-        <Text style={{ color: 'white', padding: '8px 16px' }}>9.0"</Text>
+        <Filter
+          title="Width"
+          options={productWidths}
+          selectedOptions={widths}
+          onSelect={brands => setWidths(brands)}
+          onClear={() => setWidths([])}
+        />
         <View style={{ height: 8 }} />
         <Filter
-          title="Brands"
+          title="Brand"
           options={productBrands}
           selectedOptions={brands}
           onSelect={brands => setBrands(brands)}

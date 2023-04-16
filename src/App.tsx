@@ -162,30 +162,17 @@ interface FilterProps {
 const defaultSelectedOptions: number[] = [];
 
 const Filter = ({ title, options, selectedOptions, onSelect, onClear }: FilterProps) => {
-  const [values, setValues] = useState<Set<number>>(new Set());
-
   const handleClear = () => {
-    setValues(new Set());
-
     onClear();
   };
 
   const handleSelect = (value: number) => {
-    setValues(values => {
-      const newValues = values.has(value)
-        ? new Set([...values].filter(v => v !== value))
-        : new Set([...values, value]);
-      console.log([...newValues]);
-      onSelect([...newValues]);
+    const newSelectedOptions = new Set(selectedOptions).has(value)
+      ? selectedOptions.filter(v => v !== value)
+      : new Set([...selectedOptions, value]);
 
-      return newValues;
-    });
+    onSelect([...newSelectedOptions]);
   };
-
-  useEffect(() => {
-    console.log('useEffect');
-    setValues(new Set(selectedOptions));
-  }, [selectedOptions]);
 
   return (
     <View>
@@ -214,7 +201,7 @@ const productBrands = [
 ];
 
 function App() {
-  const [brands, setBrands] = useState<number[]>([0, 1]);
+  const [brands, setBrands] = useState<number[]>([]);
 
   return (
     <div className="App" style={{ display: 'flex', maxWidth: 1024, margin: 'auto', alignItems: 'flex-start' }}>

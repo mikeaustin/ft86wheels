@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { apply, uniq, min, max } from 'rambda';
 
 import './App.css';
@@ -26,6 +26,28 @@ const Text = ({ children, ...props }: any) => {
     <div {...props}>
       {children}
     </div>
+  );
+};
+
+const Button = ({ title, selected, ...props }: any) => {
+  return (
+    <View
+      style={{
+        padding: '8px 16px',
+        marginBottom: 1,
+        cursor: 'pointer',
+        color: !selected ? 'white' : undefined,
+        fontWeight: selected ? 700 : undefined,
+        background: selected ? 'white' : 'none',
+        border: 'none',
+      }}
+      className="notched"
+      {...props}
+    >
+      <Text>
+        {title}
+      </Text>
+    </View>
   );
 };
 
@@ -133,43 +155,53 @@ interface FilterProps {
     value: number;
   }[];
   selectedOptions: number[];
-  onSelect: (value: number) => void;
+  onSelect: (value: number[]) => void;
   onClear: () => void;
 }
 
+const defaultSelectedOptions: number[] = [];
+
 const Filter = ({ title, options, selectedOptions, onSelect, onClear }: FilterProps) => {
+  const [values, setValues] = useState<Set<number>>(new Set());
+
+  const handleClear = () => {
+    setValues(new Set());
+
+    onClear();
+  };
+
+  const handleSelect = (value: number) => {
+    setValues(values => {
+      const newValues = values.has(value)
+        ? new Set([...values].filter(v => v !== value))
+        : new Set([...values, value]);
+      console.log([...newValues]);
+      onSelect([...newValues]);
+
+      return newValues;
+    });
+  };
+
+  useEffect(() => {
+    console.log('useEffect');
+    setValues(new Set(selectedOptions));
+  }, [selectedOptions]);
+
   return (
     <View>
       <Text style={{ color: 'white', padding: '0px 8px 0 0px', fontFamily: 'Bebas Neue', fontSize: 24 }}>{title}</Text>
-      <View style={{ height: 8 }} />
-      <Text
-        style={{
-          color: selectedOptions.length !== 0 ? 'white' : undefined,
-          fontWeight: selectedOptions.length === 0 ? 700 : undefined,
-          padding: '8px 16px',
-          background: selectedOptions.length === 0 ? 'white' : undefined,
-          cursor: 'pointer',
-        }}
-        className="notched"
-        onClick={() => onClear()}
-      >
-        All
-      </Text>
+      <View style={{ height: 4 }} />
+      <Button
+        title="All"
+        selected={selectedOptions.length === 0}
+        onPointerDown={handleClear}
+      />
       {options.map(option => (
-        <Text
-          style={{
-            color: !selectedOptions.includes(option.value) ? 'white' : undefined,
-            fontWeight: selectedOptions.includes(option.value) ? 700 : undefined,
-            padding: '8px 16px',
-            background: selectedOptions.includes(option.value) ? 'white' : undefined,
-            marginBottom: 1,
-            cursor: 'pointer',
-          }}
-          className="notched"
-          onClick={() => onSelect(option.value)}
-        >
-          {option.label}
-        </Text>
+        <Button
+          title={option.label}
+          selected={selectedOptions.includes(option.value)}
+          onPointerDown={() => handleSelect(option.value)}
+        />
       ))}
     </View>
   );
@@ -188,25 +220,31 @@ function App() {
     <div className="App" style={{ display: 'flex', maxWidth: 1024, margin: 'auto', alignItems: 'flex-start' }}>
       <aside style={{ position: 'sticky', top: 0, width: 256, padding: 8, paddingRight: 0 }}>
         <Text style={{ color: 'white', padding: '0px 8px 0 0px', fontFamily: 'Bebas Neue', fontSize: 24 }}>Color</Text>
-        <View style={{ height: 8 }} />
+        <View style={{ height: 4 }} />
         <Text style={{ color: 'black', fontWeight: 700, padding: '8px 16px', background: 'white' }} className="notched">All</Text>
         <Text style={{ color: 'white', padding: '8px 16px' }}>Black</Text>
         <Text style={{ color: 'white', padding: '8px 16px' }}>Gray</Text>
         <Text style={{ color: 'white', padding: '8px 16px' }}>Silver</Text>
         <View style={{ height: 8 }} />
         <Text style={{ color: 'white', padding: '8px 8px 0 0px', fontFamily: 'Bebas Neue', fontSize: 24 }}>Size</Text>
-        <View style={{ height: 8 }} />
+        <View style={{ height: 4 }} />
         <Text style={{ color: 'white', padding: '8px 16px' }}>All</Text>
         <Text style={{ color: 'white', padding: '8px 16px' }}>17"</Text>
         <Text style={{ color: 'black', fontWeight: 700, padding: '8px 16px', background: 'white' }} className="notched">18"</Text>
         <View style={{ height: 8 }} />
         <Text style={{ color: 'white', padding: '8px 8px 0 0px', fontFamily: 'Bebas Neue', fontSize: 24 }}>Width</Text>
-        <View style={{ height: 8 }} />
+        <View style={{ height: 4 }} />
         <Text style={{ color: 'white', padding: '8px 16px' }}>8.0"</Text>
         <Text style={{ color: 'black', fontWeight: 700, padding: '8px 16px', background: 'white' }} className="notched">8.5"</Text>
         <Text style={{ color: 'white', padding: '8px 16px' }}>9.0"</Text>
         <View style={{ height: 8 }} />
-        <Filter title="Brands" options={productBrands} selectedOptions={brands} onSelect={(brand) => setBrands([...brands, brand])} onClear={() => setBrands([])} />
+        <Filter
+          title="Brands"
+          options={productBrands}
+          selectedOptions={brands}
+          onSelect={brands => setBrands(brands)}
+          onClear={() => setBrands([])}
+        />
       </aside>
       <View flex as="main" style={{ padding: 8, rowGap: 8 }}>
         {/* <View horizontal>

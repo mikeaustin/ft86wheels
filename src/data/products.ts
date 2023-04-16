@@ -7,13 +7,13 @@ const products = [
       { size: 18, width: 9.5, inset: 43, price: 570 },
     ]
   },
-  {
-    title: 'Enkei Racing GTC01RR', image: 'ENKEI-GTR-GM-186-WEB.jpg', colors: [0, 5], details: [
-      { size: 18, width: 8.5, inset: 42, price: 550 },
-      { size: 18, width: 9, inset: 40, price: 570 },
-      { size: 18, width: 9.5, inset: 35, price: 600 },
-    ]
-  },
+  // {
+  //   title: 'Enkei Racing GTC01RR', image: 'ENKEI-GTR-GM-186-WEB.jpg', colors: [0, 5], details: [
+  //     { size: 18, width: 8.5, inset: 42, price: 550 },
+  //     { size: 18, width: 9, inset: 40, price: 570 },
+  //     { size: 18, width: 9.5, inset: 35, price: 600 },
+  //   ]
+  // },
   {
     title: 'APEX ARC-8', image: '18-arc8-5120-smbk-profile1_3.png', colors: [2, 1, 3], details: [
       { size: 18, width: 8.5, inset: 42, price: 350 },

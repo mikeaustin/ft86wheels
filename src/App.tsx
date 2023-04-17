@@ -222,6 +222,12 @@ const Filter = <T,>({ title, options, selectedValues, onSelect, onClear }: Filte
   );
 };
 
+const productFinishes = [
+  { label: 'Matte', value: 'matte' },
+  { label: 'Satin', value: 'satin' },
+  { label: 'Gloss', value: 'gloss' },
+];
+
 const productBrands = [
   { label: 'APEX Wheels', value: 'apex' },
   { label: 'Enkei Racing', value: 'enkei' },
@@ -243,11 +249,12 @@ const productWidths = [
 ];
 
 function App() {
-  const [colorsFilter, setColors] = useState<string[]>([]);
-  const [brandsFilter, setBrands] = useState<string[]>([]);
-  const [sizesFilter, setSizes] = useState<number[]>([]);
-  const [widthsFilter, setWidths] = useState<number[]>([]);
-  const [sortFilter, setSort] = useState<string>('price');
+  const [colorsFilter, setColorsFilter] = useState<string[]>([]);
+  const [finishesFilter, setFinishesFilter] = useState<string[]>([]);
+  const [brandsFilter, setBrandsFilter] = useState<string[]>([]);
+  const [sizesFilter, setSizesFilter] = useState<number[]>([]);
+  const [widthsFilter, setWidthsFilter] = useState<number[]>([]);
+  const [sortFilter, setSortFilter] = useState<string>('price');
 
   const [filteredProducts, setFilteredProducts] = useState<typeof products>(products);
 
@@ -269,32 +276,40 @@ function App() {
           title="Size"
           options={productSizes}
           selectedValues={sizesFilter}
-          onSelect={sizes => setSizes(sizes)}
-          onClear={() => setSizes([])}
+          onSelect={sizes => setSizesFilter(sizes)}
+          onClear={() => setSizesFilter([])}
         />
         <View style={{ height: 16 }} />
         <Filter
           title="Width"
           options={productWidths}
           selectedValues={widthsFilter}
-          onSelect={brands => setWidths(brands)}
-          onClear={() => setWidths([])}
+          onSelect={brands => setWidthsFilter(brands)}
+          onClear={() => setWidthsFilter([])}
         />
         <View style={{ height: 16 }} />
         <Filter
           title="Color"
           options={productColors}
           selectedValues={colorsFilter}
-          onSelect={colors => setColors(colors)}
-          onClear={() => setColors([])}
+          onSelect={colors => setColorsFilter(colors)}
+          onClear={() => setColorsFilter([])}
+        />
+        <View style={{ height: 16 }} />
+        <Filter
+          title="Finish"
+          options={productFinishes}
+          selectedValues={finishesFilter}
+          onSelect={finishes => setFinishesFilter(finishes)}
+          onClear={() => setFinishesFilter([])}
         />
         <View style={{ height: 16 }} />
         <Filter
           title="Brand"
           options={productBrands}
           selectedValues={brandsFilter}
-          onSelect={brands => setBrands(brands)}
-          onClear={() => setBrands([])}
+          onSelect={brands => setBrandsFilter(brands)}
+          onClear={() => setBrandsFilter([])}
         />
       </aside>
       <View flex as="main" style={{ padding: '16px 8px', gap: 8 }}>
@@ -310,7 +325,7 @@ function App() {
           <select
             style={{ appearance: 'none', padding: '3px 16px', marginBottom: -1, border: 'none', fontFamily: 'Exo', fontWeight: 600 }}
             className="notched"
-            onChange={(e) => setSort(e.target.value)}
+            onChange={(e) => setSortFilter(e.target.value)}
           >
             <option value="price">Sort by Price</option>
             <option value="weight">Sort by Weight</option>

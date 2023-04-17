@@ -55,6 +55,7 @@ interface ProductProps {
   title: string;
   image: string;
   colors: string[];
+  url: string;
   details: {
     size: number;
     width: number;
@@ -64,7 +65,7 @@ interface ProductProps {
   expanded: boolean;
 }
 
-const Product = ({ title, image, colors, details }: ProductProps) => {
+const Product = ({ title, image, colors, url, details }: ProductProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const widths = uniq(details.map(detail => detail.width));
@@ -79,7 +80,7 @@ const Product = ({ title, image, colors, details }: ProductProps) => {
         style={{ background: 'white', paddingLeft: 16, cursor: 'pointer' }}
         onClick={() => setIsExpanded(isExpanded => !isExpanded)}
       >
-        <img width={150} src={`images/${image}`} />
+        <img width={150} src={`images/${image}`} alt={title} style={{ objectFit: 'contain' }} />
         <View flex style={{ padding: '24px 16px' }}>
           <Text style={{ fontSize: 24, fontFamily: 'Bebas Neue' }}>{title}</Text>
           <div style={{ height: 8 }} />
@@ -121,25 +122,34 @@ const Product = ({ title, image, colors, details }: ProductProps) => {
         </View>
       </View>
       {isExpanded && (
-        <View horizontal style={{ background: '#f1f3f5' }}>
-          <View>
-            <View horizontal style={{ padding: '16px 24px 4px 24px', borderTop: '1px solid #dee2e6', borderBottom: '1px solid #dee2e6' }}>
-              <Text style={{ fontSize: 16, opacity: 0.5 }}>Available Sizes</Text>
+        <View>
+          <View horizontal style={{ background: '#f1f3f5' }}>
+            <View>
+              <View horizontal style={{ padding: '16px 24px 4px 24px', borderTop: '1px solid #dee2e6', borderBottom: '1px solid #dee2e6' }}>
+                <Text style={{ fontSize: 16, opacity: 0.5 }}>Available Sizes</Text>
+              </View>
+              <View style={{ flex: 1, background: 'white', padding: '16px 0 16px 24px' }}>
+                {details.map(details => (
+                  <Text style={{ fontWeight: 600, lineHeight: 1.5 }}>{details.size}x{details.width} ET-{details.inset}</Text>
+                ))}
+              </View>
             </View>
-            <View style={{ flex: 1, background: 'white', padding: '16px 0 16px 24px' }}>
-              <Text style={{ fontWeight: 600, lineHeight: 1.5 }}>18x8.5 ET-42</Text>
-              <Text style={{ fontWeight: 600, lineHeight: 1.5 }}>18x8.5 ET-50</Text>
-              <Text style={{ fontWeight: 600, lineHeight: 1.5 }}>18x9.0 ET-40</Text>
-              <Text style={{ fontWeight: 600, lineHeight: 1.5 }}>18x9.5 ET-43</Text>
+            <View style={{ flex: 1 }}>
+              <View horizontal style={{ padding: '16px 24px 4px 24px', borderTop: '1px solid #dee2e6', borderBottom: '1px solid #dee2e6' }}>
+                <Text style={{ fontSize: 16, opacity: 0.5 }}>Available Colors</Text>
+              </View>
+              <View horizontal style={{ flex: 1, background: 'white', padding: '4px 0 4px 12px' }}>
+                <img width={100} src={`images/ENKEI-RS05RR-GM-190-WEB.png`} alt="Matte Gunmetal" style={{ objectFit: 'contain' }} />
+                <img width={100} src={`images/ENKEI-RS05RR-SP-164-WEB.jpg`} alt="Sparkle Silver" style={{ objectFit: 'contain' }} />
+              </View>
             </View>
           </View>
-          <View style={{ flex: 1 }}>
+          <View style={{ background: '#f1f3f5' }}>
             <View horizontal style={{ padding: '16px 24px 4px 24px', borderTop: '1px solid #dee2e6', borderBottom: '1px solid #dee2e6' }}>
-              <Text style={{ fontSize: 16, opacity: 0.5 }}>Available Colors</Text>
+              <Text style={{ fontSize: 16, opacity: 0.5 }}>Resources</Text>
             </View>
-            <View horizontal style={{ flex: 1, background: 'white', padding: '4px 0 4px 12px' }}>
-              <img width={100} src={`images/ENKEI-RS05RR-GM-190-WEB.png`} alt="Matte Gunmetal" style={{ objectFit: 'contain' }} />
-              <img width={100} src={`images/ENKEI-RS05RR-SP-164-WEB.jpg`} alt="Sparkle Silver" style={{ objectFit: 'contain' }} />
+            <View style={{ flex: 1, background: 'white', padding: '16px 0 16px 24px' }}>
+              <a href={url} target="_blank" rel="noreferrer"><Text style={{ fontWeight: 600, lineHeight: 1.5 }}>Vendor product page</Text></a>
             </View>
           </View>
         </View>
@@ -266,18 +276,24 @@ function App() {
         />
       </aside>
       <View flex as="main" style={{ padding: 8, rowGap: 8 }}>
-        {/* <View horizontal>
-          <select style={{ appearance: 'none', padding: '8px 16px' }} className="notched">
+        <View horizontal>
+          <View flex style={{ justifyContent: 'center' }}>
+            <Text style={{ color: 'white', fontWeight: 500 }}>
+              {filteredProducts.length} products found
+            </Text>
+          </View>
+          <select style={{ appearance: 'none', padding: '4px 16px', border: 'none', fontFamily: 'Exo' }} className="notched">
             <option>Sort by Price</option>
             <option>Sort by Weight</option>
           </select>
-        </View> */}
+        </View>
         {filteredProducts.map((product, index) => (
           <Product
             key={product.title}
             title={product.title}
             image={product.image}
             colors={product.colors}
+            url={product.url}
             details={product.details}
             expanded={index === 0}
           />

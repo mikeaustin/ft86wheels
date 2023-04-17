@@ -60,6 +60,7 @@ interface ProductProps {
     size: number;
     width: number;
     inset: number;
+    weight: number;
     price: number;
   }[];
   expanded: boolean;
@@ -68,10 +69,14 @@ interface ProductProps {
 const Product = ({ title, image, colors, url, details }: ProductProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const sizes = uniq(details.map(detail => detail.size));
   const widths = uniq(details.map(detail => detail.width));
   const prices = uniq(details.map(detail => detail.price));
+  const weights = uniq(details.map(detail => detail.weight));
   const minPrice = apply(Math.min, prices);
   const maxPrice = apply(Math.max, prices);
+  const minWeight = apply(Math.min, weights);
+  const maxWeight = apply(Math.max, weights);
 
   return (
     <View className={'notched'}>
@@ -96,19 +101,23 @@ const Product = ({ title, image, colors, url, details }: ProductProps) => {
           <View horizontal style={{ display: 'flex', gap: 16 }}>
             <View>
               <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase' }}>Size</Text>
-              <Text style={{ fontSize: 14, fontWeight: 600 }}>18"</Text>
+              <View horizontal style={{ gap: 8 }}>
+                {sizes.map(size => (
+                  <Text style={{ fontSize: 14, fontWeight: 600 }}>{size}"</Text>
+                ))}
+              </View>
             </View>
             <View>
               <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase' }}>Width</Text>
               <View horizontal style={{ gap: 8 }}>
                 {widths.map(width => (
-                  <Text style={{ fontSize: 14, fontWeight: 600 }}>{width}</Text>
+                  <Text style={{ fontSize: 14, fontWeight: 600 }}>{width}"</Text>
                 ))}
               </View>
             </View>
             <View>
               <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase' }}>Weight</Text>
-              <Text style={{ fontSize: 14, fontWeight: 600 }}>18 – 20 lbs</Text>
+              <Text style={{ fontSize: 14, fontWeight: 600 }}>{minWeight} – {maxWeight} lbs</Text>
             </View>
           </View>
         </View>
@@ -184,8 +193,8 @@ const Filter = <T,>({ title, options, selectedOptions, onSelect, onClear }: Filt
 
   return (
     <View>
-      <Text style={{ color: 'white', padding: '0px 8px 0 0px', fontFamily: 'Bebas Neue', fontSize: 24 }}>{title}</Text>
-      <View style={{ height: 4 }} />
+      <Text style={{ color: 'white', padding: '0px 8px 0 0px', fontFamily: 'Bebas Neue', fontSize: 24, margin: '-5px 0' }}>{title}</Text>
+      <View style={{ height: 10 }} />
       <Button
         title="All"
         selected={selectedOptions.length === 0}
@@ -227,6 +236,7 @@ function App() {
   const [brands, setBrands] = useState<string[]>([]);
   const [sizes, setSizes] = useState<number[]>([]);
   const [widths, setWidths] = useState<number[]>([]);
+  const [sort, setSort] = useState<string>('price');
 
   const [filteredProducts, setFilteredProducts] = useState<typeof products>(products);
 
@@ -235,14 +245,15 @@ function App() {
       .filter(product => sizes.length === 0 || sizes.some(size => product.details.map(d => d.size).includes(size)))
       .filter(product => widths.length === 0 || widths.some(width => product.details.map(d => d.width).includes(width)))
       .filter(product => colors.length === 0 || colors.some(color => product.colors.includes(color)))
-      .filter(product => brands.length === 0 || brands.includes(product.brand));
+      .filter(product => brands.length === 0 || brands.includes(product.brand))
+      .sort((a, b) => sort === 'price' ? a.details[0].price - b.details[0].price : a.details[0].weight - b.details[0].weight);
 
     setFilteredProducts(filteredProducts);
-  }, [sizes, widths, colors, brands]);
+  }, [sizes, widths, colors, brands, sort]);
 
   return (
     <div className="App" style={{ display: 'flex', maxWidth: 1024, margin: 'auto', alignItems: 'flex-start' }}>
-      <aside style={{ position: 'sticky', top: 0, width: 256, padding: 8, paddingRight: 0 }}>
+      <aside style={{ position: 'sticky', top: 0, width: 256, padding: '16px 0 16px 8px' }}>
         <Filter
           title="Size"
           options={productSizes}
@@ -275,31 +286,40 @@ function App() {
           onClear={() => setBrands([])}
         />
       </aside>
-      <View flex as="main" style={{ padding: 8, rowGap: 8 }}>
-        <View horizontal>
+      <View flex as="main" style={{ padding: '16px 8px', gap: 8 }}>
+        <View horizontal style={{ gap: 8 }}>
           <View flex style={{ justifyContent: 'center' }}>
-            <Text style={{ color: 'white', fontWeight: 500 }}>
+            <Text style={{ fontFamily: 'Bebas Neue', fontSize: 24, color: 'white', fontWeight: 500, margin: '-5px 0' }}>
               {filteredProducts.length} products found
             </Text>
           </View>
-          <select style={{ appearance: 'none', padding: '4px 16px', border: 'none', fontFamily: 'Exo' }} className="notched">
-            <option>Sort by Price</option>
-            <option>Sort by Weight</option>
+          {/* <View>
+            <Button title="Expand All" />
+          </View> */}
+          <select
+            style={{ appearance: 'none', padding: '3px 16px', marginBottom: -1, border: 'none', fontFamily: 'Exo', fontWeight: 600 }}
+            className="notched"
+            onChange={(e) => setSort(e.target.value)}
+          >
+            <option value="price">Sort by Price</option>
+            <option value="weight">Sort by Weight</option>
           </select>
         </View>
-        {filteredProducts.map((product, index) => (
-          <Product
-            key={product.title}
-            title={product.title}
-            image={product.image}
-            colors={product.colors}
-            url={product.url}
-            details={product.details}
-            expanded={index === 0}
-          />
-        ))}
+        <View style={{ gap: 8 }}>
+          {filteredProducts.map((product, index) => (
+            <Product
+              key={product.title}
+              title={product.title}
+              image={product.image}
+              colors={product.colors}
+              url={product.url}
+              details={product.details}
+              expanded={index === 0}
+            />
+          ))}
+        </View>
       </View>
-    </div>
+    </div >
   );
 }
 

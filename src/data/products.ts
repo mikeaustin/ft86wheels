@@ -6,10 +6,10 @@ const products = [
     colors: ['gray', 'silver'],
     url: 'https://enkei.com/shop/wheels/racingrevolution/rs05rr',
     details: [
-      { size: 18, width: 8.5, inset: 42, price: 530 },
-      { size: 18, width: 8.5, inset: 50, weight: 18.12, price: 530 },
-      { size: 18, width: 9, inset: 40, price: 550 },
-      { size: 18, width: 9.5, inset: 43, price: 570 },
+      { size: 18, width: 8.5, inset: 42, weight: 18.07, price: 530 },
+      { size: 18, width: 8.5, inset: 50, weight: 18.07, price: 530 },
+      { size: 18, width: 9, inset: 40, weight: 18.82, price: 550 },
+      { size: 18, width: 9.5, inset: 43, weight: 19.29, price: 570 },
     ]
   },
   // {
@@ -26,9 +26,9 @@ const products = [
     colors: ['gray', 'silver', 'black'],
     url: 'https://www.apexraceparts.com/store/wheels/arc-8-wheels.html',
     details: [
-      { size: 18, width: 8.5, inset: 42, price: 350 },
-      { size: 18, width: 9, inset: 40, price: 560 },
-      { size: 18, width: 9.5, inset: 35, price: 570 },
+      // { size: 17, width: 8.5, inset: 42, weight: 17.2, price: 350 },
+      { size: 17, width: 9, inset: 42, weight: 17.8, price: 300 },
+      // { size: 17, width: 9.5, inset: 35, weight: 0, price: 570 },
     ]
   },
   {
@@ -38,8 +38,8 @@ const products = [
     colors: ['gray', 'black'],
     url: 'https://www.ozracing.com/alloy-wheels/oz-racing/i-tech/hypergt-hlt',
     details: [
-      // { size: 18, width: 7.5, inset: 35, price: 285 },
-      { size: 18, width: 8, inset: 45, price: 385 },
+      // { size: 18, width: 7.5, inset: 35, weight: 19.2, price: 285 },
+      { size: 18, width: 8, inset: 45, weight: 19.8, price: 385 },
     ]
   },
   {
@@ -49,9 +49,8 @@ const products = [
     colors: ['gray'],
     url: 'https://konigwheels.com/wheels/flow-formed-wheels/rennform',
     details: [
-      { size: 18, width: 8.5, inset: 42, price: 250 },
-      { size: 18, width: 9, inset: 40, price: 270 },
-      { size: 18, width: 9.5, inset: 35, price: 300 },
+      { size: 18, width: 8, inset: 40, weight: 18.62, price: 250 },
+      { size: 18, width: 9, inset: 38, weight: 19.17, price: 270 },
     ]
   },
   {
@@ -61,7 +60,7 @@ const products = [
     colors: ['black', 'gray', 'bronze'],
     url: 'https://www.tsw.com/alloy_wheels_neptune.php',
     details: [
-      { size: 18, width: 8, inset: 42, price: 330 },
+      { size: 18, width: 8, inset: 35, weight: 20, price: 330 },
       // { size: 18, width: 8.5, inset: 40, price: 550 },
       // { size: 18, width: 9.5, inset: 35, price: 550 },
     ]

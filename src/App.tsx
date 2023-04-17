@@ -55,6 +55,10 @@ interface ProductProps {
   title: string;
   image: string;
   colors: string[];
+  images: {
+    color: string;
+    url: string;
+  }[];
   url: string;
   details: {
     size: number;
@@ -66,7 +70,7 @@ interface ProductProps {
   expanded: boolean;
 }
 
-const Product = ({ title, image, colors, url, details }: ProductProps) => {
+const Product = ({ title, image, colors, images, url, details }: ProductProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const sizes = uniq(details.map(detail => detail.size));
@@ -90,10 +94,10 @@ const Product = ({ title, image, colors, url, details }: ProductProps) => {
           <Text style={{ fontSize: 24, fontFamily: 'Bebas Neue' }}>{title}</Text>
           <div style={{ height: 8 }} />
           <View>
-            <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase' }}>Colors</Text>
+            <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase' }}>Color</Text>
             <View horizontal style={{ gap: 8 }}>
               {colors.map(color => (
-                <Text style={{ fontSize: 14, fontWeight: 600 }}>{productColors.find(p => p.value === color)?.label}</Text>
+                <Text key={color} style={{ fontSize: 14, fontWeight: 600 }}>{productColors.find(p => p.value === color)?.label}</Text>
               ))}
             </View>
           </View>
@@ -103,7 +107,7 @@ const Product = ({ title, image, colors, url, details }: ProductProps) => {
               <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase' }}>Size</Text>
               <View horizontal style={{ gap: 8 }}>
                 {sizes.map(size => (
-                  <Text style={{ fontSize: 14, fontWeight: 600 }}>{size}"</Text>
+                  <Text key={size} style={{ fontSize: 14, fontWeight: 600 }}>{size}"</Text>
                 ))}
               </View>
             </View>
@@ -111,7 +115,7 @@ const Product = ({ title, image, colors, url, details }: ProductProps) => {
               <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase' }}>Width</Text>
               <View horizontal style={{ gap: 8 }}>
                 {widths.map(width => (
-                  <Text style={{ fontSize: 14, fontWeight: 600 }}>{width}"</Text>
+                  <Text key={width} style={{ fontSize: 14, fontWeight: 600 }}>{width}"</Text>
                 ))}
               </View>
             </View>
@@ -138,8 +142,8 @@ const Product = ({ title, image, colors, url, details }: ProductProps) => {
                 <Text style={{ fontSize: 16, opacity: 0.5 }}>Available Sizes</Text>
               </View>
               <View style={{ flex: 1, background: 'white', padding: '16px 0 16px 24px' }}>
-                {details.map(details => (
-                  <Text style={{ fontWeight: 600, lineHeight: 1.5 }}>{details.size}x{details.width} ET-{details.inset}</Text>
+                {details.map(({ size, width, inset, weight }, index) => (
+                  <Text key={index} style={{ fontWeight: 600, lineHeight: 1.5 }}>{size}x{width} ET-{inset} &nbsp; {weight} lbs</Text>
                 ))}
               </View>
             </View>
@@ -148,8 +152,14 @@ const Product = ({ title, image, colors, url, details }: ProductProps) => {
                 <Text style={{ fontSize: 16, opacity: 0.5 }}>Available Colors</Text>
               </View>
               <View horizontal style={{ flex: 1, background: 'white', padding: '4px 0 4px 12px' }}>
-                <img width={100} src={`images/ENKEI-RS05RR-GM-190-WEB.png`} alt="Matte Gunmetal" style={{ objectFit: 'contain' }} />
-                <img width={100} src={`images/ENKEI-RS05RR-SP-164-WEB.jpg`} alt="Sparkle Silver" style={{ objectFit: 'contain' }} />
+                {images.map(({ color, url }, index) => (
+                  <View key={index} style={{ position: 'relative' }}>
+                    {/* <View style={{ position: 'absolute' }}>
+                      <img width={600} src="/images/ENKEI-RS05RR-GM-190-WEB.png" style={{ objectFit: 'contain' }} />
+                    </View> */}
+                    <img width={100} src={`images/${url}`} alt={color} title={color} style={{ objectFit: 'contain' }} />
+                  </View>
+                ))}
               </View>
             </View>
           </View>
@@ -173,20 +183,20 @@ interface FilterProps<T> {
     label: string;
     value: T;
   }[];
-  selectedOptions: T[];
+  selectedValues: T[];
   onSelect: (value: T[]) => void;
   onClear: () => void;
 }
 
-const Filter = <T,>({ title, options, selectedOptions, onSelect, onClear }: FilterProps<T>) => {
+const Filter = <T,>({ title, options, selectedValues, onSelect, onClear }: FilterProps<T>) => {
   const handleClear = () => {
     onClear();
   };
 
   const handleSelect = (value: T) => {
-    const newSelectedOptions = new Set(selectedOptions).has(value)
-      ? selectedOptions.filter(v => v !== value)
-      : new Set([...selectedOptions, value]);
+    const newSelectedOptions = new Set(selectedValues).has(value)
+      ? selectedValues.filter(v => v !== value)
+      : new Set([...selectedValues, value]);
 
     onSelect([...newSelectedOptions]);
   };
@@ -197,13 +207,14 @@ const Filter = <T,>({ title, options, selectedOptions, onSelect, onClear }: Filt
       <View style={{ height: 10 }} />
       <Button
         title="All"
-        selected={selectedOptions.length === 0}
+        selected={selectedValues.length === 0}
         onPointerDown={handleClear}
       />
       {options.map(option => (
         <Button
+          key={option.value}
           title={option.label}
-          selected={selectedOptions.includes(option.value)}
+          selected={selectedValues.includes(option.value)}
           onPointerDown={() => handleSelect(option.value)}
         />
       ))}
@@ -232,24 +243,24 @@ const productWidths = [
 ];
 
 function App() {
-  const [colors, setColors] = useState<string[]>([]);
-  const [brands, setBrands] = useState<string[]>([]);
-  const [sizes, setSizes] = useState<number[]>([]);
-  const [widths, setWidths] = useState<number[]>([]);
-  const [sort, setSort] = useState<string>('price');
+  const [colorsFilter, setColors] = useState<string[]>([]);
+  const [brandsFilter, setBrands] = useState<string[]>([]);
+  const [sizesFilter, setSizes] = useState<number[]>([]);
+  const [widthsFilter, setWidths] = useState<number[]>([]);
+  const [sortFilter, setSort] = useState<string>('price');
 
   const [filteredProducts, setFilteredProducts] = useState<typeof products>(products);
 
   useEffect(() => {
     const filteredProducts = products
-      .filter(product => sizes.length === 0 || sizes.some(size => product.details.map(d => d.size).includes(size)))
-      .filter(product => widths.length === 0 || widths.some(width => product.details.map(d => d.width).includes(width)))
-      .filter(product => colors.length === 0 || colors.some(color => product.colors.includes(color)))
-      .filter(product => brands.length === 0 || brands.includes(product.brand))
-      .sort((a, b) => sort === 'price' ? a.details[0].price - b.details[0].price : a.details[0].weight - b.details[0].weight);
+      .filter(product => sizesFilter.length === 0 || sizesFilter.some(size => product.details.map(d => d.size).includes(size)))
+      .filter(product => widthsFilter.length === 0 || widthsFilter.some(width => product.details.map(d => d.width).includes(width)))
+      .filter(product => colorsFilter.length === 0 || colorsFilter.some(color => product.colors.includes(color)))
+      .filter(product => brandsFilter.length === 0 || brandsFilter.includes(product.brand))
+      .sort((a, b) => sortFilter === 'price' ? a.details[0].price - b.details[0].price : a.details[0].weight - b.details[0].weight);
 
     setFilteredProducts(filteredProducts);
-  }, [sizes, widths, colors, brands, sort]);
+  }, [sizesFilter, widthsFilter, colorsFilter, brandsFilter, sortFilter]);
 
   return (
     <div className="App" style={{ display: 'flex', maxWidth: 1024, margin: 'auto', alignItems: 'flex-start' }}>
@@ -257,31 +268,31 @@ function App() {
         <Filter
           title="Size"
           options={productSizes}
-          selectedOptions={sizes}
+          selectedValues={sizesFilter}
           onSelect={sizes => setSizes(sizes)}
           onClear={() => setSizes([])}
         />
-        <View style={{ height: 8 }} />
+        <View style={{ height: 16 }} />
         <Filter
           title="Width"
           options={productWidths}
-          selectedOptions={widths}
+          selectedValues={widthsFilter}
           onSelect={brands => setWidths(brands)}
           onClear={() => setWidths([])}
         />
-        <View style={{ height: 8 }} />
+        <View style={{ height: 16 }} />
         <Filter
           title="Color"
           options={productColors}
-          selectedOptions={colors}
+          selectedValues={colorsFilter}
           onSelect={colors => setColors(colors)}
           onClear={() => setColors([])}
         />
-        <View style={{ height: 8 }} />
+        <View style={{ height: 16 }} />
         <Filter
           title="Brand"
           options={productBrands}
-          selectedOptions={brands}
+          selectedValues={brandsFilter}
           onSelect={brands => setBrands(brands)}
           onClear={() => setBrands([])}
         />
@@ -312,6 +323,7 @@ function App() {
               title={product.title}
               image={product.image}
               colors={product.colors}
+              images={product.images}
               url={product.url}
               details={product.details}
               expanded={index === 0}
@@ -319,7 +331,13 @@ function App() {
           ))}
         </View>
       </View>
-    </div >
+      {/* <View style={{ position: 'fixed', inset: 0, alignItems: 'flex-end' }}>
+        <View style={{ position: 'absolute', inset: 0, background: 'hsla(0, 0%, 0%, 0.5)' }} />
+        <View style={{ height: '100%', justifyContent: 'center', background: 'white', boxShadow: '0 0 32px hsla(0, 0%, 0%, 0.5), 0 0 0 1px hsla(0, 0%, 0%, 0.05)', zIndex: 1 }}>
+          <img width={600} src="/images/ENKEI-RS05RR-GM-190-WEB.png" style={{ objectFit: 'contain' }} />
+        </View>
+      </View> */}
+    </div>
   );
 }
 

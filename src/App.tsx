@@ -54,7 +54,7 @@ const Button = ({ title, selected, ...props }: any) => {
 interface ProductProps {
   title: string;
   image: string;
-  colors: number[];
+  colors: string[];
   details: {
     size: number;
     width: number;
@@ -86,8 +86,8 @@ const Product = ({ title, image, colors, details }: ProductProps) => {
           <View>
             <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase' }}>Colors</Text>
             <View horizontal style={{ gap: 8 }}>
-              {colors.map((color: any) => (
-                <Text style={{ fontSize: 14, fontWeight: 600 }}>{productColors[color]}</Text>
+              {colors.map(color => (
+                <Text style={{ fontSize: 14, fontWeight: 600 }}>{productColors.find(p => p.value === color)?.label}</Text>
               ))}
             </View>
           </View>
@@ -148,25 +148,23 @@ const Product = ({ title, image, colors, details }: ProductProps) => {
   );
 };
 
-interface FilterProps {
+interface FilterProps<T> {
   title: string;
   options: {
     label: string;
-    value: number;
+    value: T;
   }[];
-  selectedOptions: number[];
-  onSelect: (value: number[]) => void;
+  selectedOptions: T[];
+  onSelect: (value: T[]) => void;
   onClear: () => void;
 }
 
-const defaultSelectedOptions: number[] = [];
-
-const Filter = ({ title, options, selectedOptions, onSelect, onClear }: FilterProps) => {
+const Filter = <T,>({ title, options, selectedOptions, onSelect, onClear }: FilterProps<T>) => {
   const handleClear = () => {
     onClear();
   };
 
-  const handleSelect = (value: number) => {
+  const handleSelect = (value: T) => {
     const newSelectedOptions = new Set(selectedOptions).has(value)
       ? selectedOptions.filter(v => v !== value)
       : new Set([...selectedOptions, value]);
@@ -200,6 +198,11 @@ const productBrands = [
   { label: 'APEX Wheels', value: 2 },
 ];
 
+const productSizes = [
+  { label: '17"', value: 17 },
+  { label: '18"', value: 18 },
+];
+
 const productWidths = [
   { label: '8"', value: 8 },
   { label: '8.5"', value: 8.5 },
@@ -208,24 +211,21 @@ const productWidths = [
 ];
 
 function App() {
+  const [colors, setColors] = useState<string[]>([]);
   const [brands, setBrands] = useState<number[]>([]);
+  const [sizes, setSizes] = useState<number[]>([]);
   const [widths, setWidths] = useState<number[]>([]);
 
   return (
     <div className="App" style={{ display: 'flex', maxWidth: 1024, margin: 'auto', alignItems: 'flex-start' }}>
       <aside style={{ position: 'sticky', top: 0, width: 256, padding: 8, paddingRight: 0 }}>
-        <Text style={{ color: 'white', padding: '0px 8px 0 0px', fontFamily: 'Bebas Neue', fontSize: 24 }}>Color</Text>
-        <View style={{ height: 4 }} />
-        <Text style={{ color: 'black', fontWeight: 700, padding: '8px 16px', background: 'white' }} className="notched">All</Text>
-        <Text style={{ color: 'white', padding: '8px 16px' }}>Black</Text>
-        <Text style={{ color: 'white', padding: '8px 16px' }}>Gray</Text>
-        <Text style={{ color: 'white', padding: '8px 16px' }}>Silver</Text>
-        <View style={{ height: 8 }} />
-        <Text style={{ color: 'white', padding: '8px 8px 0 0px', fontFamily: 'Bebas Neue', fontSize: 24 }}>Size</Text>
-        <View style={{ height: 4 }} />
-        <Text style={{ color: 'white', padding: '8px 16px' }}>All</Text>
-        <Text style={{ color: 'white', padding: '8px 16px' }}>17"</Text>
-        <Text style={{ color: 'black', fontWeight: 700, padding: '8px 16px', background: 'white' }} className="notched">18"</Text>
+        <Filter
+          title="Size"
+          options={productSizes}
+          selectedOptions={sizes}
+          onSelect={sizes => setSizes(sizes)}
+          onClear={() => setSizes([])}
+        />
         <View style={{ height: 8 }} />
         <Filter
           title="Width"
@@ -233,6 +233,14 @@ function App() {
           selectedOptions={widths}
           onSelect={brands => setWidths(brands)}
           onClear={() => setWidths([])}
+        />
+        <View style={{ height: 8 }} />
+        <Filter
+          title="Color"
+          options={productColors}
+          selectedOptions={colors}
+          onSelect={colors => setColors(colors)}
+          onClear={() => setColors([])}
         />
         <View style={{ height: 8 }} />
         <Filter

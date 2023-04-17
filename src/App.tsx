@@ -193,9 +193,11 @@ const Filter = <T,>({ title, options, selectedOptions, onSelect, onClear }: Filt
 };
 
 const productBrands = [
-  { label: 'Enkei Racing', value: 0 },
-  { label: 'O.Z. Racing', value: 1 },
-  { label: 'APEX Wheels', value: 2 },
+  { label: 'APEX Wheels', value: 'apex' },
+  { label: 'Enkei Racing', value: 'enkei' },
+  { label: 'KÖNIG', value: 'konig' },
+  { label: 'O.Z. Racing', value: 'oz-racing' },
+  { label: 'TSW', value: 'tsw' },
 ];
 
 const productSizes = [
@@ -212,9 +214,21 @@ const productWidths = [
 
 function App() {
   const [colors, setColors] = useState<string[]>([]);
-  const [brands, setBrands] = useState<number[]>([]);
+  const [brands, setBrands] = useState<string[]>([]);
   const [sizes, setSizes] = useState<number[]>([]);
   const [widths, setWidths] = useState<number[]>([]);
+
+  const [filteredProducts, setFilteredProducts] = useState<typeof products>(products);
+
+  useEffect(() => {
+    const filteredProducts = products
+      .filter(product => sizes.length === 0 || sizes.some(size => product.details.map(d => d.size).includes(size)))
+      .filter(product => widths.length === 0 || widths.some(width => product.details.map(d => d.width).includes(width)))
+      .filter(product => colors.length === 0 || colors.some(color => product.colors.includes(color)))
+      .filter(product => brands.length === 0 || brands.includes(product.brand));
+
+    setFilteredProducts(filteredProducts);
+  }, [sizes, widths, colors, brands]);
 
   return (
     <div className="App" style={{ display: 'flex', maxWidth: 1024, margin: 'auto', alignItems: 'flex-start' }}>
@@ -258,8 +272,15 @@ function App() {
             <option>Sort by Weight</option>
           </select>
         </View> */}
-        {products.map((product, index) => (
-          <Product title={product.title} image={product.image} colors={product.colors} details={product.details} expanded={index === 0} />
+        {filteredProducts.map((product, index) => (
+          <Product
+            key={product.title}
+            title={product.title}
+            image={product.image}
+            colors={product.colors}
+            details={product.details}
+            expanded={index === 0}
+          />
         ))}
       </View>
     </div>

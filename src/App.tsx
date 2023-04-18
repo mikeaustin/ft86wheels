@@ -296,14 +296,14 @@ function App() {
           onClear={() => setColorsFilter([])}
         />
         <View style={{ height: 16 }} />
-        <Filter
+        {/* <Filter
           title="Finish"
           options={productFinishes}
           selectedValues={finishesFilter}
           onSelect={finishes => setFinishesFilter(finishes)}
           onClear={() => setFinishesFilter([])}
         />
-        <View style={{ height: 16 }} />
+        <View style={{ height: 16 }} /> */}
         <Filter
           title="Brand"
           options={productBrands}
@@ -323,7 +323,7 @@ function App() {
             <Button title="Expand All" />
           </View> */}
           <select
-            style={{ appearance: 'none', padding: '3px 16px', marginBottom: -1, border: 'none', fontFamily: 'Exo', fontWeight: 600 }}
+            style={{ appearance: 'none', outline: 'none', padding: '3px 16px', marginBottom: -1, border: 'none', fontFamily: 'Exo', fontWeight: 600 }}
             className="notched"
             onChange={(e) => setSortFilter(e.target.value)}
           >

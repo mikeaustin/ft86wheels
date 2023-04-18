@@ -16,6 +16,22 @@ const products = [
       { size: 18, width: 9.5, inset: 43, weight: 19.29, price: 570 },
     ]
   },
+  {
+    brand: 'enkei',
+    title: 'Enkei Racing RPF1',
+    image: 'ENKEI-RPF1-BK-132-WEB.jpg',
+    colors: ['black', 'silver', 'gold'],
+    images: [
+      { color: 'Black', url: 'ENKEI-RPF1-BK-132-WEB.jpg' },
+      { color: 'Silver', url: 'ENKEI-RPF1-SP-144-WEB.jpg' },
+      { color: 'Gold', url: 'ENKEI-RPF1-GG-120-WEB.jpg' },
+    ],
+    url: 'https://enkei.com/shop/wheels/racingrevolution/rs05rr',
+    details: [
+      { size: 18, width: 8, inset: 35, weight: 18, price: 350 },
+      { size: 18, width: 8, inset: 45, weight: 17.95, price: 350 },
+    ]
+  },
   // {
   //   title: 'Enkei Racing GTC01RR', image: 'ENKEI-GTR-GM-186-WEB.jpg', colors: [0, 5], details: [
   //     { size: 18, width: 8.5, inset: 42, price: 550 },

@@ -28,6 +28,8 @@ const products = [
     ],
     url: 'https://enkei.com/shop/wheels/racingrevolution/rs05rr',
     details: [
+      { size: 17, width: 8, inset: 35, weight: 16.10, price: 285 },
+      { size: 17, width: 8, inset: 45, weight: 16.05, price: 285 },
       { size: 18, width: 8, inset: 35, weight: 18, price: 350 },
       { size: 18, width: 8, inset: 45, weight: 17.95, price: 350 },
     ]
@@ -99,6 +101,23 @@ const products = [
     url: 'https://www.tsw.com/alloy_wheels_neptune.php',
     details: [
       { size: 18, width: 8, inset: 35, weight: 20, price: 330 },
+      // { size: 18, width: 8.5, inset: 40, price: 550 },
+      // { size: 18, width: 9.5, inset: 35, price: 550 },
+    ]
+  },
+  {
+    brand: 'ssr',
+    title: 'SSR GTV01',
+    image: 'ssr_gtv01_black__16618.jpg',
+    colors: ['black', 'silver'],
+    images: [
+      { color: 'Flat Black', url: 'ssr_gtv01_black__16618.jpg' },
+      { color: 'Glare Silver', url: 'ssr_gtv01_silver__46923.jpg' },
+      { color: 'Phantom Silver', url: 'F24231.jpg' },
+    ],
+    url: 'https://www.ssr-wheels.com/gtv01',
+    details: [
+      { size: 18, width: 8.5, inset: 44, weight: 21.5, price: 570 },
       // { size: 18, width: 8.5, inset: 40, price: 550 },
       // { size: 18, width: 9.5, inset: 35, price: 550 },
     ]

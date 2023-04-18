@@ -151,7 +151,7 @@ const Product = ({ title, image, colors, images, url, details }: ProductProps) =
               <View horizontal style={{ padding: '16px 24px 4px 24px', borderTop: '1px solid #dee2e6', borderBottom: '1px solid #dee2e6' }}>
                 <Text style={{ fontSize: 16, opacity: 0.5 }}>Available Colors</Text>
               </View>
-              <View horizontal style={{ flex: 1, background: 'white', padding: '4px 0 4px 16px' }}>
+              <View horizontal style={{ flex: 1, background: 'white', padding: '12px 0 12px 16px' }}>
                 {images.map(({ color, url }, index) => (
                   <View key={index} style={{ position: 'relative', padding: 4 }}>
                     <img width={90} src={`images/${url}`} alt={color} title={color} style={{ objectFit: 'contain' }} />

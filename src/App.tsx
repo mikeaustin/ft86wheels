@@ -55,11 +55,11 @@ interface ProductProps {
   title: string;
   image: string;
   colors: string[];
+  url: string;
   images: {
     color: string;
     url: string;
   }[];
-  url: string;
   details: {
     size: number;
     width: number;
@@ -86,11 +86,11 @@ const Product = ({ title, image, colors, images, url, details }: ProductProps) =
     <View className={'notched'}>
       <View
         horizontal
-        style={{ background: 'white', paddingLeft: 16, cursor: 'pointer' }}
+        style={{ background: 'white', paddingLeft: 24, cursor: 'pointer' }}
         onClick={() => setIsExpanded(isExpanded => !isExpanded)}
       >
-        <img width={150} src={`images/${image}`} alt={title} style={{ objectFit: 'contain' }} />
-        <View flex style={{ padding: '24px 16px' }}>
+        <img width={130} src={`images/${image}`} alt={title} style={{ objectFit: 'contain' }} />
+        <View flex style={{ padding: '24px 24px' }}>
           <Text style={{ fontSize: 24, fontFamily: 'Bebas Neue' }}>{title}</Text>
           <div style={{ height: 8 }} />
           <View>
@@ -137,7 +137,7 @@ const Product = ({ title, image, colors, images, url, details }: ProductProps) =
       {isExpanded && (
         <View>
           <View horizontal style={{ background: '#f1f3f5' }}>
-            <View>
+            <View style={{ width: 180 }}>
               <View horizontal style={{ padding: '16px 24px 4px 24px', borderTop: '1px solid #dee2e6', borderBottom: '1px solid #dee2e6' }}>
                 <Text style={{ fontSize: 16, opacity: 0.5 }}>Available Sizes</Text>
               </View>
@@ -151,13 +151,10 @@ const Product = ({ title, image, colors, images, url, details }: ProductProps) =
               <View horizontal style={{ padding: '16px 24px 4px 24px', borderTop: '1px solid #dee2e6', borderBottom: '1px solid #dee2e6' }}>
                 <Text style={{ fontSize: 16, opacity: 0.5 }}>Available Colors</Text>
               </View>
-              <View horizontal style={{ flex: 1, background: 'white', padding: '4px 0 4px 12px' }}>
+              <View horizontal style={{ flex: 1, background: 'white', padding: '4px 0 4px 16px' }}>
                 {images.map(({ color, url }, index) => (
-                  <View key={index} style={{ position: 'relative' }}>
-                    {/* <View style={{ position: 'absolute' }}>
-                      <img width={600} src="/images/ENKEI-RS05RR-GM-190-WEB.png" style={{ objectFit: 'contain' }} />
-                    </View> */}
-                    <img width={100} src={`images/${url}`} alt={color} title={color} style={{ objectFit: 'contain' }} />
+                  <View key={index} style={{ position: 'relative', padding: 4 }}>
+                    <img width={90} src={`images/${url}`} alt={color} title={color} style={{ objectFit: 'contain' }} />
                   </View>
                 ))}
               </View>

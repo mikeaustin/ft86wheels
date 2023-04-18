@@ -42,12 +42,12 @@ const products = [
   {
     brand: 'apex',
     title: 'APEX ARC-8',
-    image: '18-arc8-5120-smbk-profile1_3.png',
+    image: '17-arc8-5120-smbk-profile1_8.png',
     colors: ['gray', 'silver', 'black'],
     images: [
       { color: 'Anthracite', url: '17-arc-8-an-profile1-anglek-5x120_8.jpg' },
       { color: 'Race Silver', url: '17-arc-8-hs-profile1-anglek-5x120_8.jpg' },
-      { color: 'Satin Black', url: '18-arc8-5120-smbk-profile1_3.png' },
+      { color: 'Satin Black', url: '17-arc8-5120-smbk-profile1_8.png' },
       { color: 'Satin Bronze', url: '17-arc8-5120-sbz-profile1.png' },
     ],
     url: 'https://www.apexraceparts.com/store/wheels/arc-8-wheels.html',

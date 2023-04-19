@@ -168,12 +168,12 @@ const products = [
   {
     brand: 'fastwheels',
     title: 'FastWheels FC08',
-    image: 'FC08A-FC08A-BLACK-(FLAT).JPG',
+    image: 'FC08A-FC08A-BLACK-(FLAT).jpg',
     colors: ['black', 'bronze'],
     finishes: ['satin', 'gloss'],
     images: [
-      { color: 'Gloss Black', url: 'FC08A-FC08A-BLACK-(FLAT).JPG' },
-      { color: 'Bronzed Carbon', url: 'FC08A-FC08A-BRONZED-CARBON-(FLAT).GIF' },
+      { color: 'Gloss Black', url: 'FC08A-FC08A-BLACK-(FLAT).jpg' },
+      { color: 'Bronzed Carbon', url: 'FC08A-FC08A-BRONZED-CARBON-(FLAT).jpg' },
     ],
     url: 'https://www.superspeedwheels.com/flowform-rf03rr',
     details: [

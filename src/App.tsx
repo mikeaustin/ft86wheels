@@ -164,8 +164,16 @@ const Product = ({ title, image, colors, images, url, details }: ProductProps) =
             <View horizontal style={{ padding: '16px 24px 4px 24px', borderTop: '1px solid #dee2e6', borderBottom: '1px solid #dee2e6' }}>
               <Text style={{ fontSize: 16, opacity: 0.5 }}>Resources</Text>
             </View>
-            <View style={{ flex: 1, background: 'white', padding: '16px 0 16px 24px' }}>
-              <a href={url} target="_blank" rel="noreferrer"><Text style={{ fontWeight: 600, lineHeight: 1.5 }}>Vendor product page</Text></a>
+            <View horizontal style={{ flex: 1, background: 'white', padding: '16px 0 16px 24px', gap: 24 }}>
+              <a href={url} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
+                <Text style={{ fontWeight: 600, lineHeight: 1.5, color: '#339af0' }}>Vendor product page</Text>
+              </a>
+              <a href={`https://www.google.com/search?q=${title.split(' ').join('+')}+brz&tbm=isch`} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
+                <Text style={{ fontWeight: 600, lineHeight: 1.5, color: '#339af0' }}>Google image search</Text>
+              </a>
+              <a href={`https://www.google.com/search?q=${title.split(' ').join('+')}+5x100&tbm=shop`} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
+                <Text style={{ fontWeight: 600, lineHeight: 1.5, color: '#339af0' }}>Google shopping search</Text>
+              </a>
             </View>
           </View>
         </View>
@@ -228,9 +236,12 @@ const productFinishes = [
 const productBrands = [
   { label: 'APEX Wheels', value: 'apex' },
   { label: 'Enkei Racing', value: 'enkei' },
-  { label: 'KÖNIG', value: 'konig' },
+  { label: 'FAST Wheels', value: 'fastwheels' },
+  { label: 'KÖNIG Wheels', value: 'konig' },
   { label: 'O.Z. Racing', value: 'oz-racing' },
-  { label: 'TSW', value: 'tsw' },
+  { label: 'SuperSpeed', value: 'superspeed' },
+  { label: 'SSR Wheels', value: 'ssr' },
+  { label: 'TSW Wheels', value: 'tsw' },
 ];
 
 const productSizes = [
@@ -260,11 +271,12 @@ function App() {
       .filter(product => sizesFilter.length === 0 || sizesFilter.some(size => product.details.map(d => d.size).includes(size)))
       .filter(product => widthsFilter.length === 0 || widthsFilter.some(width => product.details.map(d => d.width).includes(width)))
       .filter(product => colorsFilter.length === 0 || colorsFilter.some(color => product.colors.includes(color)))
+      .filter(product => finishesFilter.length === 0 || finishesFilter.some(finish => product.finishes.includes(finish)))
       .filter(product => brandsFilter.length === 0 || brandsFilter.includes(product.brand))
       .sort((a, b) => sortFilter === 'price' ? a.details[0].price - b.details[0].price : a.details[0].weight - b.details[0].weight);
 
     setFilteredProducts(filteredProducts);
-  }, [sizesFilter, widthsFilter, colorsFilter, brandsFilter, sortFilter]);
+  }, [sizesFilter, widthsFilter, colorsFilter, finishesFilter, brandsFilter, sortFilter]);
 
   return (
     <div className="App" style={{ display: 'flex', maxWidth: 1024, margin: 'auto', alignItems: 'flex-start' }}>
@@ -293,14 +305,14 @@ function App() {
           onClear={() => setColorsFilter([])}
         />
         <View style={{ height: 16 }} />
-        {/* <Filter
+        <Filter
           title="Finish"
           options={productFinishes}
           selectedValues={finishesFilter}
           onSelect={finishes => setFinishesFilter(finishes)}
           onClear={() => setFinishesFilter([])}
         />
-        <View style={{ height: 16 }} /> */}
+        <View style={{ height: 16 }} />
         <Filter
           title="Brand"
           options={productBrands}

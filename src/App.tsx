@@ -90,7 +90,7 @@ const Product = ({ title, image, colors, images, url, details }: ProductProps) =
         onClick={() => setIsExpanded(isExpanded => !isExpanded)}
       >
         <img width={130} src={`images/${image}`} alt={title} style={{ objectFit: 'contain' }} />
-        <View flex style={{ padding: '24px 24px' }}>
+        <View flex style={{ padding: '16px 24px' }}>
           <Text style={{ fontSize: 24, fontFamily: 'Bebas Neue' }}>{title}</Text>
           <div style={{ height: 8 }} />
           <View>

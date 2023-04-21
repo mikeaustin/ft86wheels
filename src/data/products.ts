@@ -187,9 +187,9 @@ const products = [
     colors: ['black', 'silver', 'bronze', 'gold'],
     finishes: ['satin', 'gloss'],
     details: [
-      { size: 18, width: 7.5, inset: 47, weight: 0, price: 470 },
-      { size: 18, width: 7.5, inset: 53, weight: 0, price: 470 },
-      { size: 18, width: 8.5, inset: 47, weight: 0, price: 500 },
+      { size: 18, width: 7.5, inset: 47, weight: 100, price: 470 },
+      { size: 18, width: 7.5, inset: 53, weight: 100, price: 470 },
+      { size: 18, width: 8.5, inset: 47, weight: 100, price: 500 },
     ],
     images: [
       { color: 'Black Diamond Lip Cut', url: '5e2e9abe3eef4.jpg' },
@@ -198,6 +198,38 @@ const products = [
       { color: 'Candy Imperial Gold', url: '5de5e45b11cfb.jpg' },
     ],
     url: 'https://www.workwheelsusa.com/product/emotion-zr10',
+  },
+  {
+    title: 'WedsSport TC105X',
+    brand: 'wedssport',
+    image: 'pic-ws-tc105x-7-1.jpg',
+    colors: ['gray'],
+    finishes: ['gloss'],
+    details: [
+      { size: 18, width: 8, inset: 45, weight: 16.2, price: 550 },
+      { size: 18, width: 8.5, inset: 43, weight: 16.42, price: 580 },
+      { size: 18, width: 9, inset: 45, weight: 16.8, price: 590 },
+      { size: 18, width: 9.5, inset: 45, weight: 17.5, price: 600 },
+    ],
+    images: [
+      { color: 'EJ-Titan', url: 'pic-ws-tc105x-7-1.jpg' },
+    ],
+    url: 'https://www.weds.co.jp/english/wedssport/tc105x',
+  },
+  {
+    title: 'WedsSport SA-75R',
+    brand: 'wedssport',
+    image: 'pic-ws-tc105x-7-1.jpg',
+    colors: ['black'],
+    finishes: ['matte'],
+    details: [
+      { size: 18, width: 8.5, inset: 45, weight: 19.5, price: 410 },
+      { size: 18, width: 9.5, inset: 45, weight: 20.3, price: 430 },
+    ],
+    images: [
+      { color: 'MAT Black', url: 'pic-ws-tc105x-7-1.jpg' },
+    ],
+    url: 'https://www.weds.co.jp/english/wedssport/sa75r',
   },
 ];
 

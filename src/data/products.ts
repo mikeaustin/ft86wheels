@@ -5,11 +5,12 @@ const products = [
     image: 'ENKEI-RS05RR-GM-190-WEB.png',
     colors: ['gray', 'silver'],
     finishes: ['matte', 'satin'],
+    country: 'japan',
     details: [
-      { size: 18, width: 8.5, inset: 42, weight: 18.07, price: 530 },
-      { size: 18, width: 8.5, inset: 50, weight: 18.07, price: 530 },
-      { size: 18, width: 9, inset: 40, weight: 18.82, price: 550 },
-      { size: 18, width: 9.5, inset: 43, weight: 19.29, price: 570 },
+      { size: 18, width: 8.5, inset: 42, weight: 18.07, price: 530, load: 1543, },
+      { size: 18, width: 8.5, inset: 50, weight: 18.07, price: 530, load: 1543, },
+      { size: 18, width: 9, inset: 40, weight: 18.82, price: 550, load: 1543, },
+      { size: 18, width: 9.5, inset: 43, weight: 19.29, price: 570, load: 1543 },
     ],
     images: [
       { color: 'Matte Gunmetal', url: 'ENKEI-RS05RR-GM-190-WEB.png' },
@@ -24,10 +25,10 @@ const products = [
     colors: ['black', 'silver', 'gold'],
     finishes: ['satin'],
     details: [
-      { size: 17, width: 8, inset: 35, weight: 16.10, price: 285 },
-      { size: 17, width: 8, inset: 45, weight: 16.05, price: 285 },
-      { size: 18, width: 8, inset: 35, weight: 18, price: 350 },
-      { size: 18, width: 8, inset: 45, weight: 17.95, price: 350 },
+      { size: 17, width: 8, inset: 35, weight: 16.10, price: 285, load: 1521 },
+      { size: 17, width: 8, inset: 45, weight: 16.05, price: 285, load: 1521 },
+      { size: 18, width: 8, inset: 35, weight: 18, price: 350, load: 1521 },
+      { size: 18, width: 8, inset: 45, weight: 17.95, price: 350, load: 1521 },
     ],
     images: [
       { color: 'Black', url: 'ENKEI-RPF1-BK-132-WEB.jpg' },
@@ -51,7 +52,7 @@ const products = [
     finishes: ['satin', 'gloss'],
     details: [
       // { size: 17, width: 8.5, inset: 42, weight: 17.2, price: 350 },
-      { size: 17, width: 9, inset: 42, weight: 17.8, price: 300 },
+      { size: 17, width: 9, inset: 42, weight: 17.8, price: 300, load: 1450 },
       // { size: 17, width: 9.5, inset: 35, weight: 0, price: 570 },
     ],
     images: [
@@ -69,8 +70,8 @@ const products = [
     colors: ['gray', 'black'],
     finishes: ['satin', 'gloss'],
     details: [
-      // { size: 18, width: 7.5, inset: 35, weight: 19.2, price: 285 },
-      { size: 18, width: 8, inset: 45, weight: 19.8, price: 385 },
+      { size: 18, width: 8, inset: 35, weight: 20, price: 285, load: 1356 },
+      { size: 18, width: 8, inset: 45, weight: 19.8, price: 385, load: 1356 },
     ],
     images: [
       { color: 'Star Graphite', url: '02_HyperGT-hlt-Star-Graphite-jpg-100x750-2.png' },
@@ -85,8 +86,8 @@ const products = [
     colors: ['gray'],
     finishes: ['matte'],
     details: [
-      { size: 18, width: 8, inset: 40, weight: 18.62, price: 250 },
-      { size: 18, width: 9, inset: 38, weight: 19.17, price: 270 },
+      { size: 18, width: 8, inset: 40, weight: 18.62, price: 250, load: 1190 },
+      { size: 18, width: 9, inset: 38, weight: 19.17, price: 270, load: 1190 },
     ],
     images: [
       { color: 'Matte Grey', url: 'kon-rennform-grey.png' },
@@ -100,7 +101,7 @@ const products = [
     colors: ['black', 'gray', 'bronze'],
     finishes: ['satin', 'gloss'],
     details: [
-      { size: 18, width: 8, inset: 35, weight: 20, price: 330 },
+      { size: 18, width: 8, inset: 35, weight: 20, price: 330, load: 1350 },
       // { size: 18, width: 8.5, inset: 40, price: 550 },
       // { size: 18, width: 9.5, inset: 35, price: 550 },
     ],
@@ -118,7 +119,7 @@ const products = [
     colors: ['black', 'silver'],
     finishes: ['matte', 'satin', 'gloss'],
     details: [
-      { size: 18, width: 8.5, inset: 44, weight: 21.5, price: 570 },
+      { size: 18, width: 8.5, inset: 44, weight: 21.5, price: 570, load: 0 },
       // { size: 18, width: 8.5, inset: 40, price: 550 },
       // { size: 18, width: 9.5, inset: 35, price: 550 },
     ],
@@ -136,9 +137,9 @@ const products = [
     colors: ['black', 'gray', 'bronze'],
     finishes: ['matte', 'satin'],
     details: [
-      { size: 18, width: 8.5, inset: 35, weight: 18.1, price: 276 },
-      { size: 18, width: 9.5, inset: 42, weight: 18.7, price: 288 },
-      { size: 18, width: 9.5, inset: 38, weight: 18.7, price: 288 },
+      { size: 18, width: 8.5, inset: 35, weight: 18.1, price: 276, load: 1521 },
+      { size: 18, width: 9.5, inset: 42, weight: 18.7, price: 288, load: 1521 },
+      { size: 18, width: 9.5, inset: 38, weight: 18.7, price: 288, load: 1521 },
     ],
     images: [
       { color: 'Matte Black', url: 'd87593_e66d44003f954fbf973b203e8bafa7ac~mv2.jpg' },
@@ -154,8 +155,8 @@ const products = [
     colors: ['black', 'gray', 'bronze', 'gold'],
     finishes: ['matte', 'gloss'],
     details: [
-      { size: 18, width: 8, inset: 40, weight: 18.6, price: 290 },
-      { size: 18, width: 9, inset: 40, weight: 19, price: 300 },
+      { size: 18, width: 8, inset: 40, weight: 18.6, price: 290, load: 1521 },
+      { size: 18, width: 9, inset: 40, weight: 19, price: 300, load: 1521 },
     ],
     images: [
       { color: 'Metallica Black', url: 'FC04-FC04-BLACK-METALLIC-(FLAT).jpg' },
@@ -172,7 +173,7 @@ const products = [
     colors: ['black', 'bronze'],
     finishes: ['satin', 'gloss'],
     details: [
-      { size: 18, width: 8, inset: 40, weight: 18.8, price: 270 },
+      { size: 18, width: 8, inset: 40, weight: 18.8, price: 270, load: 1521 },
     ],
     images: [
       { color: 'Gloss Black', url: 'FC08A-FC08A-BLACK-(FLAT).jpg' },
@@ -187,9 +188,9 @@ const products = [
     colors: ['black', 'silver', 'bronze', 'gold'],
     finishes: ['satin', 'gloss'],
     details: [
-      { size: 18, width: 7.5, inset: 47, weight: 100, price: 470 },
-      { size: 18, width: 7.5, inset: 53, weight: 100, price: 470 },
-      { size: 18, width: 8.5, inset: 47, weight: 100, price: 500 },
+      { size: 18, width: 7.5, inset: 47, weight: 100, price: 470, load: 0 },
+      { size: 18, width: 7.5, inset: 53, weight: 100, price: 470, load: 0 },
+      { size: 18, width: 8.5, inset: 47, weight: 100, price: 500, load: 0 },
     ],
     images: [
       { color: 'Black Diamond Lip Cut', url: '5e2e9abe3eef4.jpg' },
@@ -206,10 +207,10 @@ const products = [
     colors: ['gray'],
     finishes: ['gloss'],
     details: [
-      { size: 18, width: 8, inset: 45, weight: 16.2, price: 550 },
-      { size: 18, width: 8.5, inset: 43, weight: 16.42, price: 580 },
-      { size: 18, width: 9, inset: 45, weight: 16.8, price: 590 },
-      { size: 18, width: 9.5, inset: 45, weight: 17.5, price: 600 },
+      { size: 18, width: 8, inset: 45, weight: 16.2, price: 550, load: 1543 },
+      { size: 18, width: 8.5, inset: 43, weight: 16.42, price: 580, load: 1543 },
+      { size: 18, width: 9, inset: 45, weight: 16.8, price: 590, load: 1543 },
+      { size: 18, width: 9.5, inset: 45, weight: 17.5, price: 600, load: 1543 },
     ],
     images: [
       { color: 'EJ-Titan', url: 'pic-ws-tc105x-7-1.jpg' },
@@ -223,8 +224,8 @@ const products = [
     colors: ['black'],
     finishes: ['matte'],
     details: [
-      { size: 18, width: 8.5, inset: 45, weight: 19.5, price: 410 },
-      { size: 18, width: 9.5, inset: 45, weight: 20.3, price: 430 },
+      { size: 18, width: 8.5, inset: 45, weight: 19.5, price: 410, load: 0 },
+      { size: 18, width: 9.5, inset: 45, weight: 20.3, price: 430, load: 0 },
     ],
     images: [
       { color: 'MAT Black', url: 'pic-ws-tc105x-7-1.jpg' },

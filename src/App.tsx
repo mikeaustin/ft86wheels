@@ -55,6 +55,7 @@ interface ProductProps {
   title: string;
   image: string;
   colors: string[];
+  finishes: string[];
   url: string;
   images: {
     color: string;
@@ -65,22 +66,27 @@ interface ProductProps {
     width: number;
     inset: number;
     weight: number;
+    load: number;
     price: number;
   }[];
   expanded: boolean;
 }
 
-const Product = ({ title, image, colors, images, url, details }: ProductProps) => {
+const Product = ({ title, image, colors, finishes, images, url, details }: ProductProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const sizes = uniq(details.map(detail => detail.size));
   const widths = uniq(details.map(detail => detail.width));
   const prices = uniq(details.map(detail => detail.price));
   const weights = uniq(details.map(detail => detail.weight));
+  const loads = uniq(details.map(detail => detail.load));
+
   const minPrice = apply(Math.min, prices);
   const maxPrice = apply(Math.max, prices);
   const minWeight = apply(Math.min, weights);
   const maxWeight = apply(Math.max, weights);
+  const minLoad = apply(Math.min, loads);
+  const maxLoad = apply(Math.max, loads);
 
   return (
     <View className={'notched'}>
@@ -93,12 +99,22 @@ const Product = ({ title, image, colors, images, url, details }: ProductProps) =
         <View flex style={{ padding: '16px 24px' }}>
           <Text style={{ fontSize: 24, fontFamily: 'Bebas Neue' }}>{title}</Text>
           <div style={{ height: 8 }} />
-          <View>
-            <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase' }}>Color</Text>
-            <View horizontal style={{ gap: 8 }}>
-              {colors.map(color => (
-                <Text key={color} style={{ fontSize: 14, fontWeight: 600 }}>{productColors.find(p => p.value === color)?.label}</Text>
-              ))}
+          <View horizontal style={{ display: 'flex', gap: 16 }}>
+            <View>
+              <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase' }}>Color</Text>
+              <View horizontal style={{ gap: 8 }}>
+                {colors.map(color => (
+                  <Text key={color} style={{ fontSize: 14, fontWeight: 600 }}>{productColors.find(p => p.value === color)?.label}</Text>
+                ))}
+              </View>
+            </View>
+            <View>
+              <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase' }}>Finishes</Text>
+              <View horizontal style={{ gap: 8 }}>
+                {finishes.map(finish => (
+                  <Text key={finish} style={{ fontSize: 14, fontWeight: 600 }}>{productFinishes.find(p => p.value === finish)?.label}</Text>
+                ))}
+              </View>
             </View>
           </View>
           <div style={{ height: 8 }} />
@@ -122,6 +138,10 @@ const Product = ({ title, image, colors, images, url, details }: ProductProps) =
             <View>
               <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase' }}>Weight</Text>
               <Text style={{ fontSize: 14, fontWeight: 600 }}>{minWeight} – {maxWeight} lbs</Text>
+            </View>
+            <View>
+              <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase' }}>Load Rating</Text>
+              <Text style={{ fontSize: 14, fontWeight: 600 }}>{minLoad} – {maxLoad} lbs</Text>
             </View>
           </View>
         </View>
@@ -239,9 +259,11 @@ const productBrands = [
   { label: 'FAST Wheels', value: 'fastwheels' },
   { label: 'KÖNIG Wheels', value: 'konig' },
   { label: 'O.Z. Racing', value: 'oz-racing' },
-  { label: 'SuperSpeed', value: 'superspeed' },
   { label: 'SSR Wheels', value: 'ssr' },
+  { label: 'SuperSpeed', value: 'superspeed' },
   { label: 'TSW Wheels', value: 'tsw' },
+  { label: 'WedsSport', value: 'wedssport' },
+  { label: 'WORK Wheels', value: 'work' },
 ];
 
 const productSizes = [
@@ -347,6 +369,7 @@ function App() {
               title={product.title}
               image={product.image}
               colors={product.colors}
+              finishes={product.finishes}
               images={product.images}
               url={product.url}
               details={product.details}

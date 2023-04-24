@@ -232,6 +232,21 @@ const products = [
     ],
     url: 'https://www.weds.co.jp/english/wedssport/sa75r',
   },
+  {
+    title: 'Titan 7 T-R10',
+    brand: 'titan7',
+    image: 'rt10-side-black_42d2cc46-7174-4383-8b92-179c1c88b143_1024x1024@2x.webp',
+    colors: ['black', 'gray', 'bronze', 'white'],
+    finishes: ['satin', 'gloss'],
+    details: [
+      { size: 18, width: 9, inset: 47, weight: 18.8, price: 535, load: 1433 },
+      { size: 18, width: 9.5, inset: 40, weight: 18.9, price: 565, load: 1521 },
+    ],
+    images: [
+      { color: 'Machine Black', url: 'rt10-side-black_42d2cc46-7174-4383-8b92-179c1c88b143_1024x1024@2x.webp' },
+    ],
+    url: 'https://titan-7.com/products/t-r10-forged-10-spoke-wheel?variant=39957411004504',
+  },
 ];
 
 export default products;

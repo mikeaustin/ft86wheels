@@ -94,6 +94,43 @@ const products = [
     ],
     url: 'https://konigwheels.com/wheels/flow-formed-wheels/rennform',
   },
+  // {
+  //   title: 'KONIG Ultragram',
+  //   brand: 'konig',
+  //   image: 'ultra-bz-34angle.jpg',
+  //   colors: ['gray', 'silver'],
+  //   finishes: ['gloss'],
+  //   details: [
+  //     { size: 17, width: 8, inset: 38, weight: 17.59, price: 0, load: 1433 },
+  //     { size: 18, width: 8.5, inset: 38, weight: 18.54, price: 0, load: 1543 },
+  //     { size: 18, width: 9.5, inset: 36, weight: 18.76, price: 0, load: 1543 },
+  //   ],
+  //   images: [
+  //     { color: 'Carbon Bronze Metallic', url: 'ultra-bz-34angle.jpg' },
+  //     { color: 'Titanium Metallic', url: 'ultra-slv-angle-white.jpg' },
+
+
+  //   ],
+  //   url: 'https://konigwheels.com/wheels/flow-formed-wheels/rennform',
+  // },
+  {
+    title: 'KONIG Hypergram',
+    brand: 'konig',
+    image: 'hypergram-mb-34.jpg',
+    colors: ['gray', 'silver'],
+    finishes: ['gloss'],
+    details: [
+      { size: 17, width: 8, inset: 40, weight: 16.55, price: 240, load: 1190 },
+      { size: 18, width: 8.5, inset: 38, weight: 18.2, price: 260, load: 1190 },
+    ],
+    images: [
+      { color: 'Matte Black', url: 'hypergram-mb-34.jpg' },
+      { color: 'Metallic Carbon', url: 'hypergram-carbon.jpg' },
+      { color: 'Matte Grey', url: 'Hypergram-1.jpg' },
+      { color: 'Race Bronze', url: 'Hypergram-1_Bronze.jpg' },
+    ],
+    url: 'https://konigwheels.com/wheels/flow-formed-wheels/rennform',
+  },
   {
     title: 'TSW Neptune',
     brand: 'tsw',
@@ -235,7 +272,7 @@ const products = [
   {
     title: 'Titan 7 T-R10',
     brand: 'titan7',
-    image: 'rt10-side-black_42d2cc46-7174-4383-8b92-179c1c88b143_1024x1024@2x.webp',
+    image: 'rt10-side-black_42d2cc46-7174-4383-8b92-179c1c88b143_1024x1024@2x.jpg',
     colors: ['black', 'gray', 'bronze', 'white'],
     finishes: ['satin', 'gloss'],
     details: [
@@ -243,7 +280,7 @@ const products = [
       { size: 18, width: 9.5, inset: 40, weight: 18.9, price: 565, load: 1521 },
     ],
     images: [
-      { color: 'Machine Black', url: 'rt10-side-black_42d2cc46-7174-4383-8b92-179c1c88b143_1024x1024@2x.webp' },
+      { color: 'Machine Black', url: 'rt10-side-black_42d2cc46-7174-4383-8b92-179c1c88b143_1024x1024@2x.jpg' },
     ],
     url: 'https://titan-7.com/products/t-r10-forged-10-spoke-wheel?variant=39957411004504',
   },

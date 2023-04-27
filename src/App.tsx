@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { apply, uniq, min, max } from 'rambda';
 
 import './App.css';
@@ -69,17 +69,24 @@ interface ProductProps {
     load: number;
     price: number;
   }[];
-  expanded: boolean;
+  filters: {
+    sizesFilter: number[];
+    widthsFilter: number[];
+  };
 }
 
-const Product = ({ title, image, colors, finishes, images, url, details }: ProductProps) => {
+const Product = ({ title, image, colors, finishes, images, url, details, filters }: ProductProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const sizes = uniq(details.map(detail => detail.size));
-  const widths = uniq(details.map(detail => detail.width));
-  const prices = uniq(details.map(detail => detail.price));
-  const weights = uniq(details.map(detail => detail.weight));
-  const loads = uniq(details.map(detail => detail.load));
+  const filteredDetails = details
+    .filter(detail => filters.sizesFilter.length === 0 || filters.sizesFilter.includes(detail.size))
+    .filter(detail => filters.widthsFilter.length === 0 || filters.widthsFilter.includes(detail.width));
+
+  const sizes = uniq(filteredDetails.map(detail => detail.size));
+  const widths = uniq(filteredDetails.map(detail => detail.width));
+  const prices = uniq(filteredDetails.map(detail => detail.price));
+  const weights = uniq(filteredDetails.map(detail => detail.weight));
+  const loads = uniq(filteredDetails.map(detail => detail.load));
 
   const minPrice = apply(Math.min, prices);
   const maxPrice = apply(Math.max, prices);
@@ -289,6 +296,11 @@ function App() {
 
   const [filteredProducts, setFilteredProducts] = useState<typeof products>(products);
 
+  const filters = useMemo(() => ({
+    sizesFilter,
+    widthsFilter,
+  }), [sizesFilter, widthsFilter]);
+
   useEffect(() => {
     const filteredProducts = products
       .filter(product => sizesFilter.length === 0 || sizesFilter.some(size => product.details.map(d => d.size).includes(size)))
@@ -374,7 +386,7 @@ function App() {
               images={product.images}
               url={product.url}
               details={product.details}
-              expanded={index === 0}
+              filters={filters}
             />
           ))}
         </View>

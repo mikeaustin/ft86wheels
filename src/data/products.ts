@@ -284,6 +284,25 @@ const products = [
     ],
     url: 'https://titan-7.com/products/t-r10-forged-10-spoke-wheel?variant=39957411004504',
   },
+  {
+    title: 'Advan RG-4',
+    brand: 'advan',
+    image: 'ADVAN-RG-4-SEMI-GLOSS-BLACK_640x640.jpg',
+    colors: ['black', 'gray', 'silver', 'white'],
+    finishes: ['satin', 'gloss'],
+    details: [
+      { size: 18, width: 8, inset: 47, weight: 17.6, price: 650, load: 0 },
+      { size: 18, width: 8.5, inset: 44, weight: 17.8, price: 660, load: 0 },
+      { size: 18, width: 9.5, inset: 45, weight: 18, price: 680, load: 0 },
+    ],
+    images: [
+      { color: 'Semi Gloss Black', url: 'ADVAN-RG-4-SEMI-GLOSS-BLACK_640x640.jpg' },
+      { color: 'Racing Copper', url: 'ADVAN-RG-4-COPPER-BRONZE_640x640.jpg' },
+      { color: 'Racing Hyper Black', url: 'ADVAN-RG-4-HYPER-BLACK_640x640.jpg' },
+      { color: 'Racing White Metallica', url: 'ADVAN-RG-4-RACING-WHITE_640x640.jpg' },
+    ],
+    url: 'https://www.yokohama.com.au/wheels/ADRG4',
+  },
 ];
 
 export default products;

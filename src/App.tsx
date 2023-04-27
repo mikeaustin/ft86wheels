@@ -254,16 +254,17 @@ const productFinishes = [
 ];
 
 const productBrands = [
+  { label: 'ADVAN', value: 'apex' },
   { label: 'APEX Wheels', value: 'apex' },
   { label: 'Enkei Racing', value: 'enkei' },
   { label: 'FAST Wheels', value: 'fastwheels' },
-  { label: 'KÖNIG Wheels', value: 'konig' },
+  { label: 'KÖNIG', value: 'konig' },
   { label: 'O.Z. Racing', value: 'oz-racing' },
-  { label: 'SSR Wheels', value: 'ssr' },
+  { label: 'SSR', value: 'ssr' },
   { label: 'SuperSpeed', value: 'superspeed' },
-  { label: 'TSW Wheels', value: 'tsw' },
+  { label: 'TSW', value: 'tsw' },
   { label: 'WedsSport', value: 'wedssport' },
-  { label: 'WORK Wheels', value: 'work' },
+  { label: 'WORK', value: 'work' },
 ];
 
 const productSizes = [

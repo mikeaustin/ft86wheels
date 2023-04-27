@@ -1,11 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { apply, uniq, min, max } from 'rambda';
 
+import './App.css';
+
 import { View, Text, Button } from './shared/components';
 
 import Product from './components/product/Product';
-
-import './App.css';
 
 import products from './data/products';
 import productBrands from './data/productBrands';
@@ -13,30 +13,6 @@ import productSizes from './data/productSizes';
 import productWidths from './data/productWidths';
 import productColors from './data/productColors';
 import productFinishes from './data/productFinishes';
-
-interface ProductProps {
-  title: string;
-  image: string;
-  colors: string[];
-  finishes: string[];
-  url: string;
-  images: {
-    color: string;
-    url: string;
-  }[];
-  details: {
-    size: number;
-    width: number;
-    inset: number;
-    weight: number;
-    load: number;
-    price: number;
-  }[];
-  filters: {
-    sizesFilter: number[];
-    widthsFilter: number[];
-  };
-}
 
 interface FilterProps<T> {
   title: string;
@@ -111,90 +87,98 @@ function App() {
   }, [sizesFilter, widthsFilter, colorsFilter, finishesFilter, brandsFilter, sortFilter]);
 
   return (
-    <div className="App" style={{ display: 'flex', maxWidth: 1024, margin: 'auto', alignItems: 'flex-start' }}>
-      <aside style={{ position: 'sticky', top: 0, width: 256, padding: '16px 0 16px 8px' }}>
-        <Filter
-          title="Size"
-          options={productSizes}
-          selectedValues={sizesFilter}
-          onSelect={sizes => setSizesFilter(sizes)}
-          onClear={() => setSizesFilter([])}
-        />
-        <View style={{ height: 16 }} />
-        <Filter
-          title="Width"
-          options={productWidths}
-          selectedValues={widthsFilter}
-          onSelect={brands => setWidthsFilter(brands)}
-          onClear={() => setWidthsFilter([])}
-        />
-        <View style={{ height: 16 }} />
-        <Filter
-          title="Color"
-          options={productColors}
-          selectedValues={colorsFilter}
-          onSelect={colors => setColorsFilter(colors)}
-          onClear={() => setColorsFilter([])}
-        />
-        <View style={{ height: 16 }} />
-        <Filter
-          title="Finish"
-          options={productFinishes}
-          selectedValues={finishesFilter}
-          onSelect={finishes => setFinishesFilter(finishes)}
-          onClear={() => setFinishesFilter([])}
-        />
-        <View style={{ height: 16 }} />
-        <Filter
-          title="Brand"
-          options={productBrands}
-          selectedValues={brandsFilter}
-          onSelect={brands => setBrandsFilter(brands)}
-          onClear={() => setBrandsFilter([])}
-        />
-      </aside>
-      <View flex as="main" style={{ padding: '16px 8px', gap: 8 }}>
-        <View horizontal style={{ gap: 8 }}>
-          <View flex style={{ justifyContent: 'center' }}>
-            <Text style={{ fontFamily: 'Bebas Neue', fontSize: 24, color: 'white', fontWeight: 500, margin: '-5px 0' }}>
-              {filteredProducts.length} products found
-            </Text>
-          </View>
-          {/* <View>
-            <Button title="Expand All" />
-          </View> */}
-          <select
-            style={{ appearance: 'none', outline: 'none', padding: '3px 16px', marginBottom: -1, border: 'none', fontFamily: 'Exo', fontWeight: 600 }}
-            className="notched"
-            onChange={(e) => setSortFilter(e.target.value)}
-          >
-            <option value="price">Sort by Price</option>
-            <option value="weight">Sort by Weight</option>
-          </select>
-        </View>
-        <View style={{ gap: 8 }}>
-          {filteredProducts.map((product, index) => (
-            <Product
-              key={product.title}
-              title={product.title}
-              image={product.image}
-              colors={product.colors}
-              finishes={product.finishes}
-              images={product.images}
-              url={product.url}
-              details={product.details}
-              filters={filters}
-            />
-          ))}
+    <View className="App">
+      <View style={{ background: 'white' }}>
+        <View horizontal style={{ width: '100%', maxWidth: 1024, margin: 'auto', padding: '8px 8px' }}>
+          <Text style={{ fontSize: 18, fontWeight: 700, minWidth: 256 + 8 }}>FT86 Wheels</Text>
+          <Text style={{ fontSize: 18, fontWeight: 500 }}>FlowFormed or Forged Wheels under $2500</Text>
         </View>
       </View>
-      {/* <View style={{ position: 'fixed', inset: 0, alignItems: 'flex-end' }}>
-        <View style={{ position: 'absolute', inset: 0, background: 'hsla(0, 0%, 0%, 0.5)' }} />
-        <View style={{ height: '100%', justifyContent: 'center', background: 'white', boxShadow: '0 0 32px hsla(0, 0%, 0%, 0.5), 0 0 0 1px hsla(0, 0%, 0%, 0.05)', zIndex: 1 }}>
-          <img width={600} src="/images/ENKEI-RS05RR-GM-190-WEB.png" style={{ objectFit: 'contain' }} />
+      <div style={{ display: 'flex', width: '100%', maxWidth: 1024, margin: 'auto', alignItems: 'flex-start' }}>
+        <aside style={{ position: 'sticky', top: 0, width: 256, padding: '16px 0 8px 0' }}>
+          <Filter
+            title="Size"
+            options={productSizes}
+            selectedValues={sizesFilter}
+            onSelect={sizes => setSizesFilter(sizes)}
+            onClear={() => setSizesFilter([])}
+          />
+          <View style={{ height: 16 }} />
+          <Filter
+            title="Width"
+            options={productWidths}
+            selectedValues={widthsFilter}
+            onSelect={brands => setWidthsFilter(brands)}
+            onClear={() => setWidthsFilter([])}
+          />
+          <View style={{ height: 16 }} />
+          <Filter
+            title="Color"
+            options={productColors}
+            selectedValues={colorsFilter}
+            onSelect={colors => setColorsFilter(colors)}
+            onClear={() => setColorsFilter([])}
+          />
+          <View style={{ height: 16 }} />
+          <Filter
+            title="Finish"
+            options={productFinishes}
+            selectedValues={finishesFilter}
+            onSelect={finishes => setFinishesFilter(finishes)}
+            onClear={() => setFinishesFilter([])}
+          />
+          <View style={{ height: 16 }} />
+          <Filter
+            title="Brand"
+            options={productBrands}
+            selectedValues={brandsFilter}
+            onSelect={brands => setBrandsFilter(brands)}
+            onClear={() => setBrandsFilter([])}
+          />
+        </aside>
+        <View flex as="main" style={{ padding: '12px 0 16px 8px', gap: 8 }}>
+          <View horizontal style={{ gap: 8 }}>
+            <View flex style={{ justifyContent: 'center' }}>
+              <Text style={{ xfontFamily: 'Bebas Neue', fontSize: 18, color: 'white', fontWeight: 500, margin: '-5px 0' }}>
+                {filteredProducts.length} products found
+              </Text>
+            </View>
+            {/* <View>
+              <Button title="Expand All" />
+            </View> */}
+            <select
+              style={{ appearance: 'none', outline: 'none', padding: '3px 16px', marginBottom: -1, border: 'none', fontFamily: 'Exo', fontWeight: 600 }}
+              className="notched"
+              onChange={(e) => setSortFilter(e.target.value)}
+            >
+              <option value="price">Sort by Price</option>
+              <option value="weight">Sort by Weight</option>
+            </select>
+          </View>
+          <View style={{ gap: 8 }}>
+            {filteredProducts.map((product, index) => (
+              <Product
+                key={product.title}
+                title={product.title}
+                image={product.image}
+                colors={product.colors}
+                finishes={product.finishes}
+                images={product.images}
+                url={product.url}
+                details={product.details}
+                filters={filters}
+              />
+            ))}
+          </View>
         </View>
-      </View> */}
-    </div>
+        {/* <View style={{ position: 'fixed', inset: 0, alignItems: 'flex-end' }}>
+          <View style={{ position: 'absolute', inset: 0, background: 'hsla(0, 0%, 0%, 0.5)' }} />
+          <View style={{ height: '100%', justifyContent: 'center', background: 'white', boxShadow: '0 0 32px hsla(0, 0%, 0%, 0.5), 0 0 0 1px hsla(0, 0%, 0%, 0.05)', zIndex: 1 }}>
+            <img width={600} src="/images/ENKEI-RS05RR-GM-190-WEB.png" style={{ objectFit: 'contain' }} />
+          </View>
+        </View> */}
+      </div>
+    </View>
   );
 }
 

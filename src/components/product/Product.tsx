@@ -45,8 +45,8 @@ const Product = ({ title, image, colors, finishes, images, url, details, filters
 
   const minPrice = apply(Math.min, prices);
   const maxPrice = apply(Math.max, prices);
-  const minWeight = apply(Math.min, weights);
-  const maxWeight = apply(Math.max, weights);
+  const minWeight = apply(Math.min, weights).toFixed(1);
+  const maxWeight = apply(Math.max, weights).toFixed(1);
   const minLoad = apply(Math.min, loads);
   const maxLoad = apply(Math.max, loads);
 
@@ -125,7 +125,7 @@ const Product = ({ title, image, colors, finishes, images, url, details, filters
               </View>
               <View style={{ flex: 1, background: 'white', padding: '16px 0 16px 24px' }}>
                 {details.map(({ size, width, inset, weight }, index) => (
-                  <Text key={index} style={{ fontWeight: 600, lineHeight: 1.5 }}>{size}x{width} ET-{inset} &nbsp; {weight} lbs</Text>
+                  <Text key={index} style={{ fontWeight: 600, lineHeight: 1.5 }}>{size}x{width.toFixed(1)} ET-{inset} &nbsp; {weight.toFixed(1)} lbs</Text>
                 ))}
               </View>
             </View>

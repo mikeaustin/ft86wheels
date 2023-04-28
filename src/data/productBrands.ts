@@ -1,5 +1,5 @@
 const productBrands = [
-  { label: 'ADVAN', value: 'apex' },
+  { label: 'ADVAN', value: 'advan' },
   { label: 'APEX Wheels', value: 'apex' },
   { label: 'Enkei Racing', value: 'enkei' },
   { label: 'FAST Wheels', value: 'fastwheels' },

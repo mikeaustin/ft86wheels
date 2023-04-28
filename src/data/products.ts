@@ -219,6 +219,21 @@ const products = [
     url: 'https://www.superspeedwheels.com/flowform-rf03rr',
   },
   {
+    title: 'FastWheels FC09',
+    brand: 'fastwheels',
+    image: 'FC09A-FC09A-(FLAT)-GUNMETAL-METALLIC.jpg',
+    colors: ['black'],
+    finishes: ['gloss'],
+    details: [
+      { size: 18, width: 8, inset: 35, weight: 19.8, price: 270, load: 1594 },
+      { size: 18, width: 8, inset: 45, weight: 19.8, price: 270, load: 1594 },
+    ],
+    images: [
+      { color: 'Metallic Gunmetal', url: 'FC09A-FC09A-(FLAT)-GUNMETAL-METALLIC.jpg' },
+    ],
+    url: 'https://fastco.ca/fast-wheels/alloy-wheels/stylefinish?carmake=Scion&caryear=2013&carmodel=FR-S&carsubmodel=Base&caroptions=S&stylefinish=FC09%7CGM%2B%252f%2BMET',
+  },
+  {
     title: 'WORK Emotion ZR10',
     brand: 'work',
     image: '5e2e9abe3eef4.jpg',
@@ -288,7 +303,7 @@ const products = [
     title: 'Advan RG-4',
     brand: 'advan',
     image: 'ADVAN-RG-4-SEMI-GLOSS-BLACK_640x640.jpg',
-    colors: ['black', 'gray', 'silver', 'white'],
+    colors: ['black', 'bronze', 'silver', 'white'],
     finishes: ['satin', 'gloss'],
     details: [
       { size: 18, width: 8, inset: 47, weight: 17.6, price: 650, load: 0 },
@@ -302,6 +317,28 @@ const products = [
       { color: 'Racing White Metallica', url: 'ADVAN-RG-4-RACING-WHITE_640x640.jpg' },
     ],
     url: 'https://www.yokohama.com.au/wheels/ADRG4',
+  },
+  {
+    title: 'Advan RS-3',
+    brand: 'advan',
+    image: 'Advan_RSIII_BGR.jpg',
+    colors: ['black', 'bronze', 'silver', 'white'],
+    finishes: ['satin', 'gloss'],
+    certifications: ['jwl', 'via'],
+    details: [
+      { size: 18, width: 8, inset: 48, weight: 17, price: 660, load: 0 },
+      { size: 18, width: 8, inset: 37, weight: 17, price: 660, load: 0 },
+      { size: 18, width: 8.5, inset: 47, weight: 18, price: 660, load: 0 },
+      { size: 18, width: 9, inset: 50, weight: 18.2, price: 670, load: 0 },
+      { size: 18, width: 9.5, inset: 45, weight: 18.4, price: 670, load: 0 },
+    ],
+    images: [
+      { color: 'Black Gun Metallic', url: 'Advan_RSIII_BGR.jpg' },
+      { color: 'Racing Hyper Black', url: 'Advan_RSIII_HBR.jpg' },
+      { color: 'Umber Bronze Metallic', url: 'Advan_RSIII_UBR.jpg' },
+      { color: 'Racing White Metallica', url: 'Advan_RSIII_WMR.jpg' },
+    ],
+    url: 'https://www.yokohama.com.au/wheels/ADRS3',
   },
 ];
 

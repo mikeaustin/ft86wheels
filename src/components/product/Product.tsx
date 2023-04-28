@@ -24,24 +24,16 @@ interface ProductProps {
     load: number;
     price: number;
   }[];
-  filters: {
-    sizesFilter: number[];
-    widthsFilter: number[];
-  };
 }
 
-const Product = ({ title, image, colors, finishes, images, url, details, filters }: ProductProps) => {
+const Product = ({ title, image, colors, finishes, images, url, details }: ProductProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const filteredDetails = details
-    .filter(detail => filters.sizesFilter.length === 0 || filters.sizesFilter.includes(detail.size))
-    .filter(detail => filters.widthsFilter.length === 0 || filters.widthsFilter.includes(detail.width));
-
-  const sizes = uniq(filteredDetails.map(detail => detail.size));
-  const widths = uniq(filteredDetails.map(detail => detail.width));
-  const prices = uniq(filteredDetails.map(detail => detail.price));
-  const weights = uniq(filteredDetails.map(detail => detail.weight));
-  const loads = uniq(filteredDetails.map(detail => detail.load));
+  const sizes = uniq(details.map(detail => detail.size));
+  const widths = uniq(details.map(detail => detail.width));
+  const prices = uniq(details.map(detail => detail.price));
+  const weights = uniq(details.map(detail => detail.weight));
+  const loads = uniq(details.map(detail => detail.load));
 
   const minPrice = apply(Math.min, prices);
   const maxPrice = apply(Math.max, prices);
@@ -61,7 +53,7 @@ const Product = ({ title, image, colors, finishes, images, url, details, filters
         <View flex style={{ padding: '16px 24px' }}>
           <Text style={{ fontSize: 24, fontFamily: 'Bebas Neue' }}>{title}</Text>
           <div style={{ height: 8 }} />
-          <View horizontal style={{ display: 'flex', gap: 16 }}>
+          <View horizontal style={{ display: 'flex', gap: 24 }}>
             <View>
               <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase' }}>Color</Text>
               <View horizontal style={{ gap: 8 }}>
@@ -80,7 +72,7 @@ const Product = ({ title, image, colors, finishes, images, url, details, filters
             </View>
           </View>
           <div style={{ height: 8 }} />
-          <View horizontal style={{ display: 'flex', gap: 16 }}>
+          <View horizontal style={{ display: 'flex', gap: 24 }}>
             <View>
               <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase' }}>Size</Text>
               <View horizontal style={{ gap: 8 }}>

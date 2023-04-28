@@ -69,13 +69,14 @@ function App() {
 
   const [filteredProducts, setFilteredProducts] = useState<typeof products>(products);
 
-  const filters = useMemo(() => ({
-    sizesFilter,
-    widthsFilter,
-  }), [sizesFilter, widthsFilter]);
-
   useEffect(() => {
     const filteredProducts = products
+      .map(product => ({
+        ...product,
+        details: product.details
+          .filter(detail => sizesFilter.length === 0 || sizesFilter.includes(detail.size))
+          .filter(detail => widthsFilter.length === 0 || widthsFilter.includes(detail.width))
+      }))
       .filter(product => sizesFilter.length === 0 || sizesFilter.some(size => product.details.map(d => d.size).includes(size)))
       .filter(product => widthsFilter.length === 0 || widthsFilter.some(width => product.details.map(d => d.width).includes(width)))
       .filter(product => colorsFilter.length === 0 || colorsFilter.some(color => product.colors.includes(color)))
@@ -91,7 +92,7 @@ function App() {
       <View style={{ background: 'white' }}>
         <View horizontal style={{ width: '100%', maxWidth: 1024, margin: 'auto', padding: '8px 8px' }}>
           <Text style={{ fontSize: 18, fontWeight: 700, minWidth: 256 + 8 }}>FT86 Wheels</Text>
-          <Text style={{ fontSize: 18, fontWeight: 500 }}>FlowFormed or Forged Wheels under $2500</Text>
+          <Text style={{ fontSize: 18, fontWeight: 500 }}>Flow-Formed or Forged Wheels under $2600</Text>
         </View>
       </View>
       <div style={{ display: 'flex', width: '100%', maxWidth: 1024, margin: 'auto', alignItems: 'flex-start' }}>
@@ -166,7 +167,6 @@ function App() {
                 images={product.images}
                 url={product.url}
                 details={product.details}
-                filters={filters}
               />
             ))}
           </View>

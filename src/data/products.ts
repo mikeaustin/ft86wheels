@@ -67,7 +67,7 @@ const products = [
     title: 'O.Z. Racing Hyper GT HLT',
     brand: 'oz-racing',
     image: '02_HyperGT-hlt-Star-Graphite-jpg-100x750-2.png',
-    colors: ['gray', 'black'],
+    colors: ['black', 'gray'],
     finishes: ['satin', 'gloss'],
     details: [
       { size: 18, width: 8, inset: 35, weight: 20, price: 285, load: 1356 },
@@ -196,7 +196,7 @@ const products = [
       { size: 18, width: 9, inset: 40, weight: 19, price: 300, load: 1521 },
     ],
     images: [
-      { color: 'Metallica Black', url: 'FC04-FC04-BLACK-METALLIC-(FLAT).jpg' },
+      { color: 'Metallic Black', url: 'FC04-FC04-BLACK-METALLIC-(FLAT).jpg' },
       { color: 'Titanium', url: 'FC04-FC04-TITANIUM-(FLAT).jpg' },
       { color: 'Matte Bronze', url: 'FC04-FC04-MATTE-BRONZE-(FLAT).jpg' },
       { color: 'Gold', url: 'FC04-FC04-GOLD-(FLAT).jpg' },

@@ -2,6 +2,7 @@ const productBrands = [
   { label: 'ADVAN', value: 'advan' },
   { label: 'APEX Wheels', value: 'apex' },
   { label: 'Enkei Racing', value: 'enkei' },
+  { label: 'ESR Wheels', value: 'esr' },
   { label: 'FAST Wheels', value: 'fastwheels' },
   { label: 'KÖNIG', value: 'konig' },
   { label: 'O.Z. Racing', value: 'oz-racing' },

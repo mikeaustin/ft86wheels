@@ -123,7 +123,7 @@ const Product = ({ title, image, colors, finishes, images, url, details }: Produ
               </View>
               <View style={{ flex: 1, background: 'white', padding: '16px 0 16px 24px' }}>
                 {details.map(({ size, width, inset, weight }, index) => (
-                  <Text key={index} style={{ fontWeight: 600, lineHeight: 1.5 }}>{size}x{width.toFixed(1)} ET-{inset} &nbsp; {weight.toFixed(1)} lbs</Text>
+                  <Text key={index} style={{ fontWeight: 600, lineHeight: 1.5 }}>{size}x{width.toFixed(1)} &nbsp; ET-{inset} &nbsp; {weight.toFixed(1)} lbs</Text>
                 ))}
               </View>
             </View>

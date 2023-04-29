@@ -99,8 +99,8 @@ function App() {
           <Text style={{ fontSize: 18, fontWeight: 500 }}>Flow-Formed or Forged Wheels around 20 lbs or less for under $2600</Text>
         </View>
       </View>
-      <div style={{ display: 'flex', width: '100%', maxWidth: 1024, margin: 'auto', alignItems: 'flex-start' }}>
-        <aside style={{ position: 'sticky', top: 0, width: 256, padding: '16px 0 8px 0' }}>
+      <div style={{ display: 'flex', width: '100%', maxWidth: 1024, margin: 'auto', overflow: 'hidden' }}>
+        <aside style={{ width: 256, padding: '16px 0 8px 0', overflow: 'auto' }}>
           <Filter
             title="Size"
             options={productSizes}
@@ -158,10 +158,10 @@ function App() {
             >
               <option value="price">Sort by Price</option>
               <option value="weight">Sort by Weight</option>
-              <option value="price_weight">Sort by Price / Lbs</option>
+              <option value="price_weight">Sort by Price / Weight</option>
             </select>
           </View>
-          <View style={{ gap: 8 }}>
+          <View style={{ gap: 8, overflow: 'scroll' }}>
             {filteredProducts.map((product, index) => (
               <Product
                 key={product.title}

@@ -43,7 +43,7 @@ const Product = ({ title, image, colors, finishes, images, url, details }: Produ
   const maxLoad = apply(Math.max, loads);
 
   // const priceWeight = details[0].price / (22 - details[0].weight);
-  const priceWeight = details[0].price / (22 - details[0].weight) / 44;
+  const priceWeight = details[0].price / (22 - details[0].weight);
 
   return (
     <View className={'notched'}>

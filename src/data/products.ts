@@ -343,7 +343,7 @@ const products = [
   {
     title: 'ESR AP6',
     brand: 'esr',
-    image: 'esr-ap7-wheel-5lug-matte-black-gloss-black-lip-19x11-2000_600x.webp',
+    image: 'esr-ap7-wheel-5lug-matte-black-gloss-black-lip-19x11-2000_600x.jpg',
     colors: ['black', 'bronze', 'silver', 'white'],
     finishes: ['matte', 'satin', 'gloss'],
     details: [
@@ -351,17 +351,17 @@ const products = [
       { size: 18, width: 9.5, inset: 35, weight: 100, price: 347, load: 1587 },
     ],
     images: [
-      { color: 'Matte Black Gloss Lip', url: 'esr-ap7-wheel-5lug-matte-black-gloss-black-lip-19x11-2000_600x.webp' },
-      { color: 'Matte Bronze Machine Lip', url: 'esr-ap7-wheel-5lug-bronze-machine-lip-19x11-2000_600x.webp' },
-      { color: 'Hyper Silver Machine Lip', url: 'esr-ap7-wheel-5lug-silver-machined-lip-19x11-2000_600x.webp' },
-      { color: 'Gloss White', url: 'esr-apx6-wheel-5lug-gloss-white-18x10-5-2000_600x.webp' },
+      { color: 'Matte Black Gloss Lip', url: 'esr-ap7-wheel-5lug-matte-black-gloss-black-lip-19x11-2000_600x.jpg' },
+      { color: 'Matte Bronze Machine Lip', url: 'esr-ap7-wheel-5lug-bronze-machine-lip-19x11-2000_600x.jpg' },
+      { color: 'Hyper Silver Machine Lip', url: 'esr-ap7-wheel-5lug-silver-machined-lip-19x11-2000_600x.jpg' },
+      { color: 'Gloss White', url: 'esr-apx6-wheel-5lug-gloss-white-18x10-5-2000_600x.jpg' },
     ],
     url: 'https://esrwheels.com/collections/apex-series/products/ap7-matte-black-gloss-black-lip',
   },
   {
     title: 'ESR AP8',
     brand: 'esr',
-    image: 'esr-ap8-wheel-5lug-matte-black-gloss-black-lip-19x11-2000_600x.webp',
+    image: 'esr-ap8-wheel-5lug-matte-black-gloss-black-lip-19x11-2000_600x.jpg',
     colors: ['black', 'bronze', 'silver'],
     finishes: ['matte', 'satin', 'gloss'],
     details: [
@@ -369,9 +369,9 @@ const products = [
       { size: 18, width: 9.5, inset: 35, weight: 100, price: 347, load: 1750 },
     ],
     images: [
-      { color: 'Matte Black Gloss Lip', url: 'esr-ap8-wheel-5lug-matte-black-gloss-black-lip-19x11-2000_600x.webp' },
-      { color: 'Matte Bronze Machine Lip', url: 'esr-ap8-wheel-5lug-bronze-machine-lip-19x11-2000_600x.webp' },
-      { color: 'Hyper Silver Machine Lip', url: 'esr-ap8-wheel-5lug-silver-machined-lip-19x11-2000_1_4db3f379-b8bb-4a40-8690-894627341917_600x.webp' },
+      { color: 'Matte Black Gloss Lip', url: 'esr-ap8-wheel-5lug-matte-black-gloss-black-lip-19x11-2000_600x.jpg' },
+      { color: 'Matte Bronze Machine Lip', url: 'esr-ap8-wheel-5lug-bronze-machine-lip-19x11-2000_600x.jpg' },
+      { color: 'Hyper Silver Machine Lip', url: 'esr-ap8-wheel-5lug-silver-machined-lip-19x11-2000_1_4db3f379-b8bb-4a40-8690-894627341917_600x.jpg' },
     ],
     url: 'https://esrwheels.com/collections/apex-series/products/ap8',
   },

@@ -104,14 +104,11 @@ const Product = ({ title, image, colors, finishes, images, url, details }: Produ
         </View>
         <div style={{ width: 1, background: '#343a40', margin: '8px 0' }} />
         <View style={{ padding: '16px 24px', justifyContent: 'center', alignItems: 'center' }}>
-          {/* <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase', marginBottom: -2 }}>Min</Text> */}
+          <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase', marginBottom: -2 }}>Min</Text>
           <Text style={{ fontFamily: 'Bebas Neue', fontSize: 24 }}>${minPrice}</Text>
-          {/* <View style={{ height: 6 }} /> */}
-          {/* <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase', marginBottom: -2 }}>Max</Text> */}
+          <View style={{ height: 6 }} />
+          <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase', marginBottom: -2 }}>Max</Text>
           <Text style={{ fontFamily: 'Bebas Neue', fontSize: 24 }}>${maxPrice}</Text>
-          <View style={{ height: 8 }} />
-          <Text style={{ fontSize: 11, color: '#808080', textTransform: 'uppercase' }}>Value</Text>
-          <Text style={{ fontFamily: 'Bebas Neue', fontSize: 18 }}>{priceWeight.toFixed(1)}</Text>
         </View>
       </View>
       {isExpanded && (

@@ -225,6 +225,25 @@ const products = [
     url: 'https://www.superspeedwheels.com/flowform-rf03rr',
   },
   {
+    title: 'SuperSpeed RF06RR',
+    brand: 'superspeed',
+    image: 'd87593_82fb6b7fa64b40aca6049fd6cacc28fc~mv2.jpg',
+    colors: ['black', 'bronze'],
+    finishes: ['matte', 'satin'],
+    details: [
+      { size: 17, width: 9, inset: 38, weight: 18.5, price: 290, load: 1520 },
+      { size: 18, width: 8.5, inset: 40, weight: 18.9, price: 320, load: 1520 },
+      { size: 18, width: 9.5, inset: 38, weight: 19.4, price: 350, load: 1520 },
+      { size: 18, width: 9.5, inset: 42, weight: 19.4, price: 350, load: 1520 },
+    ],
+    images: [
+      { color: 'Matte Black', url: 'd87593_82fb6b7fa64b40aca6049fd6cacc28fc~mv2.jpg' },
+      { color: 'Satin Bronze', url: 'd87593_5241bd5b64814c7895dade34998d5689~mv2.jpg' },
+    ],
+    url: 'https://www.superspeedwheels.com/flowform-rf06rr',
+    tests: ['JWL', 'VIA', '30deg', '90deg']
+  },
+  {
     title: 'FastWheels FC04',
     brand: 'fastwheels',
     image: 'FC04-FC04-BLACK-METALLIC-(FLAT).jpg',

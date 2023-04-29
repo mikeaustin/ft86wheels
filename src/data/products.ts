@@ -37,6 +37,26 @@ const products = [
     ],
     url: 'https://enkei.com/shop/wheels/racingrevolution/rs05rr',
   },
+  {
+    title: 'Enkei Racing T6S',
+    brand: 'enkei',
+    image: 'ENKEI-TOCLIP-T6S-BK-198-SM143.jpg',
+    colors: ['black', 'silver', 'gold'],
+    finishes: ['matte', 'gloss'],
+    details: [
+      { size: 17, width: 8, inset: 45, weight: 20.55, price: 240, load: 0 },
+      { size: 17, width: 9, inset: 45, weight: 22.45, price: 250, load: 0 },
+      { size: 18, width: 8, inset: 45, weight: 21.5, price: 260, load: 0 },
+      { size: 18, width: 8.5, inset: 45, weight: 21.9, price: 270, load: 0 },
+      { size: 18, width: 9.5, inset: 45, weight: 22.7, price: 280, load: 0 },
+    ],
+    images: [
+      { color: 'Matte Black', url: 'ENKEI-TOCLIP-T6S-BK-198-SM143.jpg' },
+      { color: 'Matte Silver', url: 'ENKEI-TOCLIP-T6S-SP-188-SM137.jpg' },
+      { color: 'Gold', url: 'ENKEI-TOCLIP-T6S-GG-160-SM119.jpg' },
+    ],
+    url: 'https://enkei.com/shop/wheels/tuning/t6s',
+  },
   // {
   //   title: 'Enkei Racing GTC01RR', image: 'ENKEI-GTR-GM-186-WEB.jpg', colors: [0, 5], details: [
   //     { size: 18, width: 8.5, inset: 42, price: 550 },
@@ -76,6 +96,25 @@ const products = [
     images: [
       { color: 'Star Graphite', url: '02_HyperGT-hlt-Star-Graphite-jpg-100x750-2.png' },
       { color: 'Gloss Black', url: '02_HyperGT_HLT_GlossBlack.jpg' },
+    ],
+    url: 'https://www.ozracing.com/alloy-wheels/oz-racing/i-tech/hypergt-hlt',
+  },
+  {
+    title: 'O.Z. Racing Alleggerita HLT',
+    brand: 'oz-racing',
+    image: '02_alleggerita-hlt-matt-black-jpg 1000x750.jpg',
+    colors: ['black', 'bronze', 'gold', 'silver', 'white'],
+    finishes: ['matte', 'satin', 'gloss'],
+    details: [
+      { size: 17, width: 8, inset: 48, weight: 15.4, price: 440, load: 0 },
+      { size: 18, width: 8, inset: 48, weight: 17.4, price: 460, load: 0 },
+    ],
+    images: [
+      { color: 'Matte Black', url: '02_alleggerita-hlt-matt-black-jpg 1000x750.jpg' },
+      { color: 'Matte Bronze', url: '02_alleggerita-hlt-matt-bronze-jpg 1000x750.jpg' },
+      { color: 'Race Gold', url: '02_alleggerita-hlt-race-gold-jpg 1000x750.jpg' },
+      { color: 'Star Silver', url: '02-alleggerita-hlt-star-silver-jpg-1000x750-2.jpg' },
+      { color: 'Race White', url: '02_alleggerita-hlt-race-white-jpg 1000x750.jpg' },
     ],
     url: 'https://www.ozracing.com/alloy-wheels/oz-racing/i-tech/hypergt-hlt',
   },

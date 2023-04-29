@@ -82,7 +82,11 @@ function App() {
       .filter(product => colorsFilter.length === 0 || colorsFilter.some(color => product.colors.includes(color)))
       .filter(product => finishesFilter.length === 0 || finishesFilter.some(finish => product.finishes.includes(finish)))
       .filter(product => brandsFilter.length === 0 || brandsFilter.includes(product.brand))
-      .sort((a, b) => sortFilter === 'price' ? a.details[0].price - b.details[0].price : a.details[0].weight - b.details[0].weight);
+      .sort((a, b) => sortFilter === 'price'
+        ? a.details[0].price - b.details[0].price
+        : sortFilter === 'weight'
+          ? a.details[0].weight - b.details[0].weight
+          : (a.details[0].price / (22 - a.details[0].weight)) - (b.details[0].price / (22 - b.details[0].weight)));
 
     setFilteredProducts(filteredProducts);
   }, [sizesFilter, widthsFilter, colorsFilter, finishesFilter, brandsFilter, sortFilter]);
@@ -154,6 +158,7 @@ function App() {
             >
               <option value="price">Sort by Price</option>
               <option value="weight">Sort by Weight</option>
+              <option value="price_weight">Sort by Price / Lbs</option>
             </select>
           </View>
           <View style={{ gap: 8 }}>

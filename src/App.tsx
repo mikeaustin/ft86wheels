@@ -92,7 +92,7 @@ function App() {
       <View style={{ background: 'white' }}>
         <View horizontal style={{ width: '100%', maxWidth: 1024, margin: 'auto', padding: '8px 8px' }}>
           <Text style={{ fontSize: 18, fontWeight: 700, minWidth: 256 + 8 }}>FT86 Wheels</Text>
-          <Text style={{ fontSize: 18, fontWeight: 500 }}>Flow-Formed or Forged Wheels under $2600</Text>
+          <Text style={{ fontSize: 18, fontWeight: 500 }}>Flow-Formed or Forged Wheels around 20 lbs or less for under $2600</Text>
         </View>
       </View>
       <div style={{ display: 'flex', width: '100%', maxWidth: 1024, margin: 'auto', alignItems: 'flex-start' }}>

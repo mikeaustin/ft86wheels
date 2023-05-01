@@ -141,7 +141,7 @@ function App() {
             onClear={() => setBrandsFilter([])}
           />
         </aside>
-        <View flex as="main" style={{ padding: '12px 0 16px 8px', gap: 8 }}>
+        <View flex as="main" style={{ padding: '12px 0 0 8px', gap: 8 }}>
           <View horizontal style={{ gap: 8 }}>
             <View flex style={{ justifyContent: 'center' }}>
               <Text style={{ xfontFamily: 'Bebas Neue', fontSize: 18, color: 'white', fontWeight: 500, margin: '-5px 0' }}>
@@ -161,7 +161,7 @@ function App() {
               <option value="price_weight">Sort by Price / Weight</option>
             </select>
           </View>
-          <View style={{ gap: 8, overflow: 'scroll' }}>
+          <View style={{ gap: 8, overflow: 'scroll', paddingBottom: 8 }}>
             {filteredProducts.map((product, index) => (
               <Product
                 key={product.title}

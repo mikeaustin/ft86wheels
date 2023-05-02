@@ -147,8 +147,6 @@ const products = [
   //   images: [
   //     { color: 'Carbon Bronze Metallic', url: 'ultra-bz-34angle.jpg' },
   //     { color: 'Titanium Metallic', url: 'ultra-slv-angle-white.jpg' },
-
-
   //   ],
   //   url: 'https://konigwheels.com/wheels/flow-formed-wheels/rennform',
   // },
@@ -171,6 +169,24 @@ const products = [
     url: 'https://konigwheels.com/wheels/flow-formed-wheels/rennform',
   },
   {
+    title: 'KONIG Hexaform',
+    brand: 'konig',
+    image: 'hex-dmg.png.jpg',
+    colors: ['black', 'bronze', 'white'],
+    finishes: ['matte', 'gloss'],
+    details: [
+      { size: 17, width: 8, inset: 40, weight: 17.2, price: 250, load: 1543 },
+      { size: 17, width: 9, inset: 40, weight: 18.52, price: 260, load: 1543 },
+      { size: 18, width: 8.5, inset: 40, weight: 19.12, price: 290, load: 1543 },
+    ],
+    images: [
+      { color: 'Matte Black', url: 'hex-dmg.png.jpg' },
+      { color: 'Matte Bronze', url: 'hex-bro.png.jpg' },
+      { color: 'Gloss White', url: 'hexaform-w-34.png.jpg' },
+    ],
+    url: 'https://konigwheels.com/wheels/flow-formed-wheels/rennform',
+  },
+  {
     title: 'TSW Neptune',
     brand: 'tsw',
     image: 'alloy-wheels-rims-tsw-neptune-5-lug-semi-gloss-black-std-700.jpg',
@@ -182,27 +198,55 @@ const products = [
       // { size: 18, width: 9.5, inset: 35, price: 550 },
     ],
     images: [
-      { color: 'Battleship Gray', url: 'alloy-wheels-rims-tsw-neptune-5-lug-battleship-gray-std-700.jpg' },
       { color: 'Semigloss Black', url: 'alloy-wheels-rims-tsw-neptune-5-lug-semi-gloss-black-std-700.jpg' },
+      { color: 'Battleship Gray', url: 'alloy-wheels-rims-tsw-neptune-5-lug-battleship-gray-std-700.jpg' },
       { color: 'Bronze', url: 'alloy-wheels-rims-tsw-neptune-5-lug-bronze-std-700.jpg' },
     ],
     url: 'https://www.tsw.com/alloy_wheels_neptune.php',
+  },
+  {
+    title: 'TSW Imatra',
+    brand: 'tsw',
+    image: 'TSW IMATRA 18X9.5 5LUG ET25 DARK MATTE BLK-std-700.jpg',
+    colors: ['black', 'gray'],
+    finishes: ['matte', 'satin'],
+    details: [
+      { size: 18, width: 8.5, inset: 38, weight: 18, price: 310, load: 1375 },
+      { size: 18, width: 9.5, inset: 38, weight: 20, price: 320, load: 1375 },
+    ],
+    images: [
+      { color: 'Matte Black', url: 'TSW IMATRA 18X9.5 5LUG ET25 DARK MATTE BLK-std-700.jpg' },
+      { color: 'Satin Dark Blue', url: 'TSW IMATRA 18X9.5 5LUG ET25 DARK MATTE BLUE-std-700.jpg' },
+    ],
+    url: 'https://www.tsw.com/alloy_wheels_imatra.php',
   },
   {
     title: 'SSR GTV01',
     brand: 'ssr',
     image: 'ssr_gtv01_black__16618.jpg',
     colors: ['black', 'silver'],
-    finishes: ['matte', 'satin', 'gloss'],
+    finishes: ['matte', 'satin'],
     details: [
       { size: 18, width: 8.5, inset: 44, weight: 21.5, price: 570, load: 0 },
-      // { size: 18, width: 8.5, inset: 40, price: 550 },
-      // { size: 18, width: 9.5, inset: 35, price: 550 },
     ],
     images: [
       { color: 'Flat Black', url: 'ssr_gtv01_black__16618.jpg' },
       { color: 'Glare Silver', url: 'ssr_gtv01_silver__46923.jpg' },
-      // { color: 'Phantom Silver', url: 'F24231.jpg' },
+    ],
+    url: 'https://www.ssr-wheels.com/gtv01',
+  },
+  {
+    title: 'SSR GTV02',
+    brand: 'ssr',
+    image: 'gtv02_fb_640x480.jpg',
+    colors: ['black', 'silver'],
+    finishes: ['matte', 'satin'],
+    details: [
+      { size: 18, width: 8.5, inset: 44, weight: 21.2, price: 520, load: 0 },
+    ],
+    images: [
+      { color: 'Flat Black', url: 'gtv02_fb_640x480.jpg' },
+      { color: 'Glare Silver', url: 'gtv02_ps_640x480.jpg' },
     ],
     url: 'https://www.ssr-wheels.com/gtv01',
   },
@@ -405,8 +449,8 @@ const products = [
     colors: ['black', 'bronze', 'silver', 'white'],
     finishes: ['matte', 'satin', 'gloss'],
     details: [
-      { size: 18, width: 8.5, inset: 30, weight: 100, price: 340, load: 1587 },
-      { size: 18, width: 9.5, inset: 35, weight: 100, price: 347, load: 1587 },
+      { size: 18, width: 8.5, inset: 30, weight: 29, price: 340, load: 1587 },
+      { size: 18, width: 9.5, inset: 35, weight: 29, price: 347, load: 1587 },
     ],
     images: [
       { color: 'Matte Black Gloss Lip', url: 'esr-ap7-wheel-5lug-matte-black-gloss-black-lip-19x11-2000_600x.jpg' },
@@ -423,8 +467,8 @@ const products = [
     colors: ['black', 'bronze', 'silver'],
     finishes: ['matte', 'satin', 'gloss'],
     details: [
-      { size: 18, width: 8.5, inset: 30, weight: 100, price: 340, load: 1750 },
-      { size: 18, width: 9.5, inset: 35, weight: 100, price: 347, load: 1750 },
+      { size: 18, width: 8.5, inset: 30, weight: 29, price: 340, load: 1750 },
+      { size: 18, width: 9.5, inset: 35, weight: 29, price: 347, load: 1750 },
     ],
     images: [
       { color: 'Matte Black Gloss Lip', url: 'esr-ap8-wheel-5lug-matte-black-gloss-black-lip-19x11-2000_600x.jpg' },
@@ -432,6 +476,20 @@ const products = [
       { color: 'Hyper Silver Machine Lip', url: 'esr-ap8-wheel-5lug-silver-machined-lip-19x11-2000_1_4db3f379-b8bb-4a40-8690-894627341917_600x.jpg' },
     ],
     url: 'https://esrwheels.com/collections/apex-series/products/ap8',
+  },
+  {
+    title: 'ForgeStar F14',
+    brand: 'forgestar',
+    image: 'forgestar-f14-wheel-5lug-gloss-black-19x11.jpg',
+    colors: ['black'],
+    finishes: ['gloss'],
+    details: [
+      { size: 18, width: 8.5, inset: 0, weight: 18.5, price: 480, load: 0 },
+    ],
+    images: [
+      { color: 'Gloss Black', url: 'forgestar-f14-wheel-5lug-gloss-black-19x11.jpg' },
+    ],
+    url: 'https://www.forgestar.com/wheels/performance/f14',
   },
 ];
 

@@ -4,6 +4,7 @@ const productBrands = [
   { label: 'Enkei Racing', value: 'enkei' },
   { label: 'ESR Wheels', value: 'esr' },
   { label: 'FAST Wheels', value: 'fastwheels' },
+  { label: 'ForgeStar', value: 'forgestar' },
   { label: 'KÖNIG', value: 'konig' },
   { label: 'O.Z. Racing', value: 'oz-racing' },
   { label: 'SSR', value: 'ssr' },

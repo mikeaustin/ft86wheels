@@ -2,7 +2,6 @@ const products = [
   {
     title: 'Enkei Racing RS05RR',
     brand: 'enkei',
-    image: 'ENKEI-RS05RR-GM-190-WEB.png',
     colors: ['gray', 'silver'],
     finishes: ['matte', 'satin'],
     country: 'japan',
@@ -21,7 +20,6 @@ const products = [
   {
     title: 'Enkei Racing RPF1',
     brand: 'enkei',
-    image: 'ENKEI-RPF1-BK-132-WEB.jpg',
     colors: ['black', 'silver', 'gold'],
     finishes: ['satin'],
     details: [
@@ -40,7 +38,6 @@ const products = [
   {
     title: 'Enkei Racing T6S',
     brand: 'enkei',
-    image: 'ENKEI-TOCLIP-T6S-BK-198-SM143.jpg',
     colors: ['black', 'silver', 'gold'],
     finishes: ['matte', 'gloss'],
     details: [
@@ -67,7 +64,6 @@ const products = [
   {
     title: 'APEX ARC-8',
     brand: 'apex',
-    image: '17-arc8-5120-smbk-profile1_8.png',
     colors: ['gray', 'silver', 'black', 'bronze'],
     finishes: ['satin', 'gloss'],
     details: [
@@ -86,7 +82,6 @@ const products = [
   {
     title: 'O.Z. Racing Hyper GT HLT',
     brand: 'oz-racing',
-    image: '02_HyperGT-hlt-Star-Graphite-jpg-100x750-2.png',
     colors: ['black', 'gray'],
     finishes: ['satin', 'gloss'],
     details: [
@@ -102,7 +97,6 @@ const products = [
   {
     title: 'O.Z. Racing Alleggerita HLT',
     brand: 'oz-racing',
-    image: '02_alleggerita-hlt-matt-black-jpg 1000x750.jpg',
     colors: ['black', 'bronze', 'gold', 'silver', 'white'],
     finishes: ['matte', 'satin', 'gloss'],
     details: [
@@ -121,7 +115,6 @@ const products = [
   {
     title: 'KONIG Rennform',
     brand: 'konig',
-    image: 'kon-rennform-grey.png',
     colors: ['gray'],
     finishes: ['matte'],
     details: [
@@ -153,7 +146,6 @@ const products = [
   {
     title: 'KONIG Hypergram',
     brand: 'konig',
-    image: 'hypergram-mb-34.jpg',
     colors: ['gray', 'silver'],
     finishes: ['gloss'],
     details: [
@@ -171,7 +163,6 @@ const products = [
   {
     title: 'KONIG Hexaform',
     brand: 'konig',
-    image: 'hex-dmg.png.jpg',
     colors: ['black', 'bronze', 'white'],
     finishes: ['matte', 'gloss'],
     details: [
@@ -189,7 +180,6 @@ const products = [
   {
     title: 'TSW Neptune',
     brand: 'tsw',
-    image: 'alloy-wheels-rims-tsw-neptune-5-lug-semi-gloss-black-std-700.jpg',
     colors: ['black', 'gray', 'bronze'],
     finishes: ['satin', 'gloss'],
     details: [
@@ -207,7 +197,6 @@ const products = [
   {
     title: 'TSW Imatra',
     brand: 'tsw',
-    image: 'TSW IMATRA 18X9.5 5LUG ET25 DARK MATTE BLK-std-700.jpg',
     colors: ['black', 'gray'],
     finishes: ['matte', 'satin'],
     details: [
@@ -223,7 +212,6 @@ const products = [
   {
     title: 'SSR GTV01',
     brand: 'ssr',
-    image: 'ssr_gtv01_black__16618.jpg',
     colors: ['black', 'silver'],
     finishes: ['matte', 'satin'],
     details: [
@@ -238,7 +226,6 @@ const products = [
   {
     title: 'SSR GTV02',
     brand: 'ssr',
-    image: 'gtv02_fb_640x480.jpg',
     colors: ['black', 'silver'],
     finishes: ['matte', 'satin'],
     details: [
@@ -253,7 +240,6 @@ const products = [
   {
     title: 'SuperSpeed RF03RR',
     brand: 'superspeed',
-    image: 'd87593_e66d44003f954fbf973b203e8bafa7ac~mv2.jpg',
     colors: ['black', 'gray', 'bronze'],
     finishes: ['matte', 'satin'],
     details: [
@@ -271,7 +257,6 @@ const products = [
   {
     title: 'SuperSpeed RF06RR',
     brand: 'superspeed',
-    image: 'd87593_82fb6b7fa64b40aca6049fd6cacc28fc~mv2.jpg',
     colors: ['black', 'bronze'],
     finishes: ['matte', 'satin'],
     details: [
@@ -290,7 +275,6 @@ const products = [
   {
     title: 'FastWheels FC04',
     brand: 'fastwheels',
-    image: 'FC04-FC04-BLACK-METALLIC-(FLAT).jpg',
     colors: ['black', 'gray', 'bronze', 'gold'],
     finishes: ['matte', 'gloss'],
     details: [
@@ -308,7 +292,6 @@ const products = [
   {
     title: 'FastWheels FC08',
     brand: 'fastwheels',
-    image: 'FC08A-FC08A-BLACK-(FLAT).jpg',
     colors: ['black', 'bronze'],
     finishes: ['satin', 'gloss'],
     details: [
@@ -323,7 +306,6 @@ const products = [
   {
     title: 'FastWheels FC09',
     brand: 'fastwheels',
-    image: 'FC09A-FC09A-(FLAT)-GUNMETAL-METALLIC.jpg',
     colors: ['black'],
     finishes: ['gloss'],
     details: [
@@ -338,7 +320,6 @@ const products = [
   {
     title: 'WORK Emotion ZR10',
     brand: 'work',
-    image: '5e2e9abe3eef4.jpg',
     colors: ['black', 'silver', 'bronze', 'gold'],
     finishes: ['satin', 'gloss'],
     details: [
@@ -357,7 +338,6 @@ const products = [
   {
     title: 'WedsSport TC105X',
     brand: 'wedssport',
-    image: 'pic-ws-tc105x-7-1.jpg',
     colors: ['gray'],
     finishes: ['gloss'],
     details: [
@@ -374,7 +354,6 @@ const products = [
   {
     title: 'WedsSport SA-75R',
     brand: 'wedssport',
-    image: 'pic-ws-tc105x-7-1.jpg',
     colors: ['black'],
     finishes: ['matte'],
     details: [
@@ -389,7 +368,6 @@ const products = [
   {
     title: 'Titan 7 T-R10',
     brand: 'titan7',
-    image: 'rt10-side-black_42d2cc46-7174-4383-8b92-179c1c88b143_1024x1024@2x.jpg',
     colors: ['black', 'gray', 'bronze', 'white'],
     finishes: ['satin', 'gloss'],
     details: [
@@ -404,7 +382,6 @@ const products = [
   {
     title: 'Advan RG-4',
     brand: 'advan',
-    image: 'ADVAN-RG-4-SEMI-GLOSS-BLACK_640x640.jpg',
     colors: ['black', 'bronze', 'silver', 'white'],
     finishes: ['satin', 'gloss'],
     details: [
@@ -423,7 +400,6 @@ const products = [
   {
     title: 'Advan RS-3',
     brand: 'advan',
-    image: 'Advan_RSIII_BGR.jpg',
     colors: ['black', 'bronze', 'silver', 'white'],
     finishes: ['satin', 'gloss'],
     certifications: ['jwl', 'via'],
@@ -445,7 +421,6 @@ const products = [
   {
     title: 'ESR AP6',
     brand: 'esr',
-    image: 'esr-ap7-wheel-5lug-matte-black-gloss-black-lip-19x11-2000_600x.jpg',
     colors: ['black', 'bronze', 'silver', 'white'],
     finishes: ['matte', 'satin', 'gloss'],
     details: [
@@ -463,7 +438,6 @@ const products = [
   {
     title: 'ESR AP8',
     brand: 'esr',
-    image: 'esr-ap8-wheel-5lug-matte-black-gloss-black-lip-19x11-2000_600x.jpg',
     colors: ['black', 'bronze', 'silver'],
     finishes: ['matte', 'satin', 'gloss'],
     details: [
@@ -480,7 +454,6 @@ const products = [
   {
     title: 'ForgeStar F14',
     brand: 'forgestar',
-    image: 'forgestar-f14-wheel-5lug-gloss-black-19x11.jpg',
     colors: ['black'],
     finishes: ['gloss'],
     details: [

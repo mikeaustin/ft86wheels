@@ -166,7 +166,7 @@ function App() {
               <Product
                 key={product.title}
                 title={product.title}
-                image={product.image}
+                image={product.images[0].url}
                 colors={product.colors}
                 finishes={product.finishes}
                 images={product.images}

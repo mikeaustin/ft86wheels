@@ -171,6 +171,7 @@ function App() {
                 finishes={product.finishes}
                 images={product.images}
                 url={product.url}
+                country={product.country}
                 details={product.details}
               />
             ))}

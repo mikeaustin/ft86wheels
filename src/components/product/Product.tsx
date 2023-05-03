@@ -12,6 +12,7 @@ interface ProductProps {
   colors: string[];
   finishes: string[];
   url: string;
+  country?: string;
   images: {
     color: string;
     url: string;
@@ -26,7 +27,7 @@ interface ProductProps {
   }[];
 }
 
-const Product = ({ title, image, colors, finishes, images, url, details }: ProductProps) => {
+const Product = ({ title, image, colors, finishes, images, url, country, details }: ProductProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const sizes = uniq(details.map(detail => detail.size));
@@ -43,7 +44,6 @@ const Product = ({ title, image, colors, finishes, images, url, details }: Produ
   const maxLoad = apply(Math.max, loads);
 
   // const priceWeight = details[0].price / (22 - details[0].weight);
-  const priceWeight = details[0].price / (22 - details[0].weight);
 
   return (
     <View className={'notched'}>
@@ -54,7 +54,10 @@ const Product = ({ title, image, colors, finishes, images, url, details }: Produ
       >
         <img width={130} src={`images/${image}`} alt={title} style={{ objectFit: 'contain' }} />
         <View flex style={{ padding: '16px 24px' }}>
-          <Text style={{ fontSize: 24, fontFamily: 'Bebas Neue' }}>{title}</Text>
+          <View horizontal>
+            <Text style={{ fontSize: 24, fontFamily: 'Bebas Neue', flex: 1 }}>{title}</Text>
+            <Text style={{ fontSize: 24, fontFamily: 'Bebas Neue' }}>{country}</Text>
+          </View>
           <div style={{ height: 8 }} />
           <View horizontal style={{ display: 'flex', gap: 24 }}>
             <View>

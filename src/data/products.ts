@@ -22,6 +22,7 @@ const products = [
     brand: 'enkei',
     colors: ['black', 'silver', 'gold'],
     finishes: ['satin'],
+    country: 'japan',
     details: [
       { size: 17, width: 8, inset: 35, weight: 16.10, price: 285, load: 1521 },
       { size: 17, width: 8, inset: 45, weight: 16.05, price: 285, load: 1521 },
@@ -36,10 +37,11 @@ const products = [
     url: 'https://enkei.com/shop/wheels/racingrevolution/rs05rr',
   },
   {
-    title: 'Enkei Racing T6S',
+    title: 'Enkei Tuning T6S',
     brand: 'enkei',
     colors: ['black', 'silver', 'gold'],
     finishes: ['matte', 'gloss'],
+    country: 'thailand',
     details: [
       { size: 17, width: 8, inset: 45, weight: 20.55, price: 240, load: 0 },
       { size: 17, width: 9, inset: 45, weight: 22.45, price: 250, load: 0 },
@@ -84,6 +86,7 @@ const products = [
     brand: 'oz-racing',
     colors: ['black', 'gray'],
     finishes: ['satin', 'gloss'],
+    country: 'italy',
     details: [
       { size: 18, width: 8, inset: 35, weight: 20, price: 285, load: 1356 },
       { size: 18, width: 8, inset: 45, weight: 19.8, price: 385, load: 1356 },
@@ -99,6 +102,7 @@ const products = [
     brand: 'oz-racing',
     colors: ['black', 'bronze', 'gold', 'silver', 'white'],
     finishes: ['matte', 'satin', 'gloss'],
+    country: 'italy',
     details: [
       { size: 17, width: 8, inset: 48, weight: 15.4, price: 440, load: 0 },
       { size: 18, width: 8, inset: 48, weight: 17.4, price: 460, load: 0 },
@@ -117,6 +121,7 @@ const products = [
     brand: 'konig',
     colors: ['gray'],
     finishes: ['matte'],
+    country: 'china',
     details: [
       { size: 18, width: 8, inset: 40, weight: 18.62, price: 250, load: 1190 },
       { size: 18, width: 9, inset: 38, weight: 19.17, price: 270, load: 1190 },
@@ -148,6 +153,7 @@ const products = [
     brand: 'konig',
     colors: ['gray', 'silver'],
     finishes: ['gloss'],
+    country: 'china',
     details: [
       { size: 17, width: 8, inset: 40, weight: 16.55, price: 240, load: 1190 },
       { size: 18, width: 8.5, inset: 38, weight: 18.2, price: 260, load: 1190 },
@@ -165,6 +171,7 @@ const products = [
     brand: 'konig',
     colors: ['black', 'bronze', 'white'],
     finishes: ['matte', 'gloss'],
+    country: 'china',
     details: [
       { size: 17, width: 8, inset: 40, weight: 17.2, price: 250, load: 1543 },
       { size: 17, width: 9, inset: 40, weight: 18.52, price: 260, load: 1543 },
@@ -182,6 +189,7 @@ const products = [
     brand: 'tsw',
     colors: ['black', 'gray', 'bronze'],
     finishes: ['satin', 'gloss'],
+    country: 'china',
     details: [
       { size: 18, width: 8, inset: 35, weight: 20, price: 330, load: 1350 },
       // { size: 18, width: 8.5, inset: 40, price: 550 },
@@ -199,6 +207,7 @@ const products = [
     brand: 'tsw',
     colors: ['black', 'gray'],
     finishes: ['matte', 'satin'],
+    country: 'china',
     details: [
       { size: 18, width: 8.5, inset: 38, weight: 18, price: 310, load: 1375 },
       { size: 18, width: 9.5, inset: 38, weight: 20, price: 320, load: 1375 },
@@ -214,6 +223,7 @@ const products = [
     brand: 'ssr',
     colors: ['black', 'silver'],
     finishes: ['matte', 'satin'],
+    country: 'japan',
     details: [
       { size: 18, width: 8.5, inset: 44, weight: 21.5, price: 570, load: 0 },
     ],
@@ -228,6 +238,7 @@ const products = [
     brand: 'ssr',
     colors: ['black', 'silver'],
     finishes: ['matte', 'satin'],
+    country: 'japan',
     details: [
       { size: 18, width: 8.5, inset: 44, weight: 21.2, price: 520, load: 0 },
     ],
@@ -322,10 +333,11 @@ const products = [
     brand: 'work',
     colors: ['black', 'silver', 'bronze', 'gold'],
     finishes: ['satin', 'gloss'],
+    country: 'japan',
     details: [
-      { size: 18, width: 7.5, inset: 47, weight: 100, price: 470, load: 0 },
-      { size: 18, width: 7.5, inset: 53, weight: 100, price: 470, load: 0 },
-      { size: 18, width: 8.5, inset: 47, weight: 100, price: 500, load: 0 },
+      { size: 18, width: 7.5, inset: 47, weight: 21.1, price: 470, load: 0 },
+      { size: 18, width: 7.5, inset: 53, weight: 21.1, price: 470, load: 0 },
+      { size: 18, width: 8.5, inset: 47, weight: 21.3, price: 500, load: 0 },
     ],
     images: [
       { color: 'Black Diamond Lip Cut', url: '5e2e9abe3eef4.jpg' },
@@ -336,10 +348,29 @@ const products = [
     url: 'https://www.workwheelsusa.com/product/emotion-zr10',
   },
   {
+    title: 'WORK Emotion T7R',
+    brand: 'work',
+    colors: ['gray'],
+    finishes: ['matte'],
+    country: 'japan',
+    details: [
+      { size: 18, width: 7.5, inset: 47, weight: 22.1, price: 470, load: 0 },
+      { size: 18, width: 7.5, inset: 53, weight: 22.1, price: 470, load: 0 },
+      { size: 18, width: 8.5, inset: 45, weight: 22.3, price: 500, load: 0 },
+    ],
+    images: [
+      { color: 'Matte Gunmetal', url: 'T7R-2P-MGM-2.jpg' },
+      { color: 'Matte Bronze', url: 'T7R-2P-AHG-2.jpg' },
+      { color: 'White', url: 'T7R-2P-SR-WHT-2.jpg' },
+    ],
+    url: 'https://www.workwheelsusa.com/product/emotion-t7r-2p',
+  },
+  {
     title: 'WedsSport TC105X',
     brand: 'wedssport',
     colors: ['gray'],
     finishes: ['gloss'],
+    country: 'japan',
     details: [
       { size: 18, width: 8, inset: 45, weight: 16.2, price: 550, load: 1543 },
       { size: 18, width: 8.5, inset: 43, weight: 16.42, price: 580, load: 1543 },
@@ -354,14 +385,17 @@ const products = [
   {
     title: 'WedsSport SA-75R',
     brand: 'wedssport',
-    colors: ['black'],
-    finishes: ['matte'],
+    colors: ['black', 'bronze'],
+    finishes: ['matte', 'gloss'],
+    country: 'japan',
     details: [
       { size: 18, width: 8.5, inset: 45, weight: 19.5, price: 410, load: 0 },
       { size: 18, width: 9.5, inset: 45, weight: 20.3, price: 430, load: 0 },
     ],
     images: [
-      { color: 'MAT Black', url: 'pic-ws-tc105x-7-1.jpg' },
+      { color: 'Matte Black', url: 'SA75R_1885_MATBLACK.jpg' },
+      { color: 'Hyper Black', url: 'SA75R_1875_HBC.png' },
+      { color: 'EJ Bronze', url: 'SA75R_1885_EJB.png' },
     ],
     url: 'https://www.weds.co.jp/english/wedssport/sa75r',
   },
@@ -370,6 +404,7 @@ const products = [
     brand: 'titan7',
     colors: ['black', 'gray', 'bronze', 'white'],
     finishes: ['satin', 'gloss'],
+    country: 'china',
     details: [
       { size: 18, width: 9, inset: 47, weight: 18.8, price: 535, load: 1433 },
       { size: 18, width: 9.5, inset: 40, weight: 18.9, price: 565, load: 1521 },
@@ -384,6 +419,7 @@ const products = [
     brand: 'advan',
     colors: ['black', 'bronze', 'silver', 'white'],
     finishes: ['satin', 'gloss'],
+    country: 'japan',
     details: [
       { size: 18, width: 8, inset: 47, weight: 17.6, price: 650, load: 0 },
       { size: 18, width: 8.5, inset: 44, weight: 17.8, price: 660, load: 0 },
@@ -402,6 +438,7 @@ const products = [
     brand: 'advan',
     colors: ['black', 'bronze', 'silver', 'white'],
     finishes: ['satin', 'gloss'],
+    country: 'japan',
     certifications: ['jwl', 'via'],
     details: [
       { size: 18, width: 8, inset: 48, weight: 17, price: 660, load: 0 },
@@ -456,6 +493,7 @@ const products = [
     brand: 'forgestar',
     colors: ['black'],
     finishes: ['gloss'],
+    country: 'USA',
     details: [
       { size: 18, width: 8.5, inset: 0, weight: 18.5, price: 480, load: 0 },
     ],
@@ -463,6 +501,21 @@ const products = [
       { color: 'Gloss Black', url: 'forgestar-f14-wheel-5lug-gloss-black-19x11.jpg' },
     ],
     url: 'https://www.forgestar.com/wheels/performance/f14',
+  },
+  {
+    title: 'HRE FF15',
+    brand: 'hre',
+    colors: ['black', 'silver'],
+    finishes: ['matte', 'gloss'],
+    country: 'japan',
+    details: [
+      { size: 18, width: 9, inset: 40, weight: 19.6, price: 550, load: 0 },
+    ],
+    images: [
+      { color: 'Tarmac', url: '142981859506b51edec816d5cb8bafe7b121ee189c.jpg' },
+      { color: 'Liquid Silver', url: '1429818902f1415c2b6b3b459a3784dc83fa6394ac.jpg' },
+    ],
+    url: 'https://www.hrewheels.com/wheels/hre-flowform/ff15',
   },
 ];
 

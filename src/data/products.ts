@@ -13,7 +13,7 @@ const products = [
       { size: 18, width: 9.5, inset: 43, weight: 19.29, price: 570, load: 1543 },
     ],
     images: [
-      { color: 'Matte Gunmetal', url: 'ENKEI-RS05RR-GM-190-WEB.png' },
+      { color: 'Matte Gunmetal', url: 'ENKEI-RS05RR-GM-190-WEB.jpg' },
       { color: 'Sparkle Silver', url: 'ENKEI-RS05RR-SP-164-WEB.jpg' },
     ],
     url: 'https://enkei.com/shop/wheels/racingrevolution/rs05rr',
@@ -82,8 +82,8 @@ const products = [
     images: [
       { color: 'Anthracite', url: '17-arc-8-an-profile1-anglek-5x120_8.jpg' },
       { color: 'Race Silver', url: '17-arc-8-hs-profile1-anglek-5x120_8.jpg' },
-      { color: 'Satin Black', url: '17-arc8-5120-smbk-profile1_8.png' },
-      { color: 'Satin Bronze', url: '17-arc8-5120-sbz-profile1.png' },
+      { color: 'Satin Black', url: '17-arc8-5120-smbk-profile1_8.jpg' },
+      { color: 'Satin Bronze', url: '17-arc8-5120-sbz-profile1.jpg' },
     ],
     url: 'https://www.apexraceparts.com/store/wheels/arc-8-wheels.html',
   },
@@ -99,7 +99,7 @@ const products = [
       { size: 18, width: 8, inset: 45, weight: 19.8, price: 385, load: 1356 },
     ],
     images: [
-      { color: 'Star Graphite', url: '02_HyperGT-hlt-Star-Graphite-jpg-100x750-2.png' },
+      { color: 'Star Graphite', url: '02_HyperGT-hlt-Star-Graphite-jpg-100x750-2.jpg' },
       { color: 'Gloss Black', url: '02_HyperGT_HLT_GlossBlack.jpg' },
     ],
     url: 'https://www.ozracing.com/alloy-wheels/oz-racing/i-tech/hypergt-hlt',
@@ -135,7 +135,7 @@ const products = [
       { size: 18, width: 9, inset: 38, weight: 19.17, price: 270, load: 1190 },
     ],
     images: [
-      { color: 'Matte Grey', url: 'kon-rennform-grey.png' },
+      { color: 'Matte Grey', url: 'kon-rennform-grey.jpg' },
     ],
     url: 'https://konigwheels.com/wheels/flow-formed-wheels/rennform',
   },

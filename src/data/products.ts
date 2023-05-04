@@ -159,7 +159,7 @@ const products = [
   {
     title: 'KONIG Hypergram',
     brand: 'konig',
-    colors: ['gray', 'silver'],
+    colors: ['gray', 'silver', 'bronze'],
     finishes: ['gloss'],
     country: 'china',
     details: [
@@ -364,8 +364,8 @@ const products = [
   {
     title: 'WORK Emotion T7R',
     brand: 'work',
-    colors: ['gray'],
-    finishes: ['matte'],
+    colors: ['gray', 'bronze', 'white'],
+    finishes: ['matte', 'gloss'],
     country: 'japan',
     tests: ['JWL', 'VIA'],
     details: [
@@ -510,7 +510,7 @@ const products = [
     title: 'ForgeStar F14',
     brand: 'forgestar',
     colors: ['black'],
-    finishes: ['gloss'],
+    finishes: ['satin'],
     // country: 'usa',
     details: [
       { size: 18, width: 8.5, inset: 0, weight: 18.5, price: 480, load: 0 },

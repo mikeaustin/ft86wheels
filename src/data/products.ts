@@ -5,6 +5,7 @@ const products = [
     colors: ['gray', 'silver'],
     finishes: ['matte', 'satin'],
     country: 'japan',
+    tests: ['JWL', 'VIA'],
     details: [
       { size: 18, width: 8.5, inset: 42, weight: 18.07, price: 530, load: 1543, },
       { size: 18, width: 8.5, inset: 50, weight: 18.07, price: 530, load: 1543, },
@@ -23,6 +24,7 @@ const products = [
     colors: ['black', 'silver', 'gold'],
     finishes: ['satin'],
     country: 'japan',
+    tests: ['JWL', 'VIA'],
     details: [
       { size: 17, width: 8, inset: 35, weight: 16.10, price: 285, load: 1521 },
       { size: 17, width: 8, inset: 45, weight: 16.05, price: 285, load: 1521 },
@@ -42,6 +44,7 @@ const products = [
     colors: ['black', 'silver', 'gold'],
     finishes: ['matte', 'gloss'],
     country: 'thailand',
+    tests: ['JWL', 'VIA'],
     details: [
       { size: 17, width: 8, inset: 45, weight: 20.55, price: 240, load: 0 },
       { size: 17, width: 9, inset: 45, weight: 22.45, price: 250, load: 0 },
@@ -68,6 +71,9 @@ const products = [
     brand: 'apex',
     colors: ['gray', 'silver', 'black', 'bronze'],
     finishes: ['satin', 'gloss'],
+    country: 'china',
+    tests: ['JWL', 'VIA'],
+    notes: 'https://www.2addicts.com/forums/showpost.php?p=24068643&postcount=14',
     details: [
       // { size: 17, width: 8.5, inset: 42, weight: 17.2, price: 350 },
       { size: 17, width: 9, inset: 42, weight: 17.8, price: 300, load: 1450 },
@@ -87,6 +93,7 @@ const products = [
     colors: ['black', 'gray'],
     finishes: ['satin', 'gloss'],
     country: 'italy',
+    tests: ['TÜV'],
     details: [
       { size: 18, width: 8, inset: 35, weight: 20, price: 285, load: 1356 },
       { size: 18, width: 8, inset: 45, weight: 19.8, price: 385, load: 1356 },
@@ -103,6 +110,7 @@ const products = [
     colors: ['black', 'bronze', 'gold', 'silver', 'white'],
     finishes: ['matte', 'satin', 'gloss'],
     country: 'italy',
+    tests: ['TÜV'],
     details: [
       { size: 17, width: 8, inset: 48, weight: 15.4, price: 440, load: 0 },
       { size: 18, width: 8, inset: 48, weight: 17.4, price: 460, load: 0 },
@@ -224,6 +232,7 @@ const products = [
     colors: ['black', 'silver'],
     finishes: ['matte', 'satin'],
     country: 'japan',
+    tests: ['JWL', 'VIA'],
     details: [
       { size: 18, width: 8.5, inset: 44, weight: 21.5, price: 570, load: 0 },
     ],
@@ -239,6 +248,7 @@ const products = [
     colors: ['black', 'silver'],
     finishes: ['matte', 'satin'],
     country: 'japan',
+    tests: ['JWL', 'VIA'],
     details: [
       { size: 18, width: 8.5, inset: 44, weight: 21.2, price: 520, load: 0 },
     ],
@@ -281,16 +291,17 @@ const products = [
       { color: 'Satin Bronze', url: 'd87593_5241bd5b64814c7895dade34998d5689~mv2.jpg' },
     ],
     url: 'https://www.superspeedwheels.com/flowform-rf06rr',
-    tests: ['JWL', 'VIA', '30deg', '90deg']
+    tests: ['jwl', 'via']
   },
   {
     title: 'FastWheels FC04',
     brand: 'fastwheels',
     colors: ['black', 'gray', 'bronze', 'gold'],
     finishes: ['matte', 'gloss'],
+    country: 'china',
     details: [
-      { size: 18, width: 8, inset: 40, weight: 18.6, price: 290, load: 1521 },
-      { size: 18, width: 9, inset: 40, weight: 19, price: 300, load: 1521 },
+      { size: 18, width: 8, inset: 40, weight: 18.6, price: 290, load: 1576 },
+      { size: 18, width: 9, inset: 40, weight: 19, price: 300, load: 1576 },
     ],
     images: [
       { color: 'Metallic Black', url: 'FC04-FC04-BLACK-METALLIC-(FLAT).jpg' },
@@ -305,6 +316,7 @@ const products = [
     brand: 'fastwheels',
     colors: ['black', 'bronze'],
     finishes: ['satin', 'gloss'],
+    country: 'china',
     details: [
       { size: 18, width: 8, inset: 40, weight: 18.8, price: 270, load: 1521 },
     ],
@@ -319,6 +331,7 @@ const products = [
     brand: 'fastwheels',
     colors: ['black'],
     finishes: ['gloss'],
+    country: 'china',
     details: [
       { size: 18, width: 8, inset: 35, weight: 19.8, price: 270, load: 1594 },
       { size: 18, width: 8, inset: 45, weight: 19.8, price: 270, load: 1594 },
@@ -334,6 +347,7 @@ const products = [
     colors: ['black', 'silver', 'bronze', 'gold'],
     finishes: ['satin', 'gloss'],
     country: 'japan',
+    tests: ['JWL', 'VIA'],
     details: [
       { size: 18, width: 7.5, inset: 47, weight: 21.1, price: 470, load: 0 },
       { size: 18, width: 7.5, inset: 53, weight: 21.1, price: 470, load: 0 },
@@ -353,6 +367,7 @@ const products = [
     colors: ['gray'],
     finishes: ['matte'],
     country: 'japan',
+    tests: ['JWL', 'VIA'],
     details: [
       { size: 18, width: 7.5, inset: 47, weight: 22.1, price: 470, load: 0 },
       { size: 18, width: 7.5, inset: 53, weight: 22.1, price: 470, load: 0 },
@@ -371,6 +386,7 @@ const products = [
     colors: ['gray'],
     finishes: ['gloss'],
     country: 'japan',
+    tests: ['JWL', 'VIA'],
     details: [
       { size: 18, width: 8, inset: 45, weight: 16.2, price: 550, load: 1543 },
       { size: 18, width: 8.5, inset: 43, weight: 16.42, price: 580, load: 1543 },
@@ -388,14 +404,15 @@ const products = [
     colors: ['black', 'bronze'],
     finishes: ['matte', 'gloss'],
     country: 'japan',
+    tests: ['JWL', 'VIA'],
     details: [
       { size: 18, width: 8.5, inset: 45, weight: 19.5, price: 410, load: 0 },
       { size: 18, width: 9.5, inset: 45, weight: 20.3, price: 430, load: 0 },
     ],
     images: [
       { color: 'Matte Black', url: 'SA75R_1885_MATBLACK.jpg' },
-      { color: 'Hyper Black', url: 'SA75R_1875_HBC.png' },
-      { color: 'EJ Bronze', url: 'SA75R_1885_EJB.png' },
+      { color: 'Hyper Black', url: 'SA75R_1875_HBC.jpg' },
+      { color: 'EJ Bronze', url: 'SA75R_1885_EJB.jpg' },
     ],
     url: 'https://www.weds.co.jp/english/wedssport/sa75r',
   },
@@ -420,6 +437,7 @@ const products = [
     colors: ['black', 'bronze', 'silver', 'white'],
     finishes: ['satin', 'gloss'],
     country: 'japan',
+    tests: ['JWL', 'VIA'],
     details: [
       { size: 18, width: 8, inset: 47, weight: 17.6, price: 650, load: 0 },
       { size: 18, width: 8.5, inset: 44, weight: 17.8, price: 660, load: 0 },
@@ -439,7 +457,7 @@ const products = [
     colors: ['black', 'bronze', 'silver', 'white'],
     finishes: ['satin', 'gloss'],
     country: 'japan',
-    certifications: ['jwl', 'via'],
+    tests: ['JWL', 'VIA'],
     details: [
       { size: 18, width: 8, inset: 48, weight: 17, price: 660, load: 0 },
       { size: 18, width: 8, inset: 37, weight: 17, price: 660, load: 0 },
@@ -493,7 +511,7 @@ const products = [
     brand: 'forgestar',
     colors: ['black'],
     finishes: ['gloss'],
-    country: 'USA',
+    // country: 'usa',
     details: [
       { size: 18, width: 8.5, inset: 0, weight: 18.5, price: 480, load: 0 },
     ],
@@ -508,6 +526,7 @@ const products = [
     colors: ['black', 'silver'],
     finishes: ['matte', 'gloss'],
     country: 'japan',
+    tests: ['JWL', 'VIA', 'TÜV'],
     details: [
       { size: 18, width: 9, inset: 40, weight: 19.6, price: 550, load: 0 },
     ],
@@ -516,6 +535,22 @@ const products = [
       { color: 'Liquid Silver', url: '1429818902f1415c2b6b3b459a3784dc83fa6394ac.jpg' },
     ],
     url: 'https://www.hrewheels.com/wheels/hre-flowform/ff15',
+  },
+  {
+    title: 'HRE FF01',
+    brand: 'hre',
+    colors: ['black', 'silver'],
+    finishes: ['matte', 'gloss'],
+    country: 'japan',
+    tests: ['JWL', 'VIA', 'TÜV'],
+    details: [
+      { size: 18, width: 9, inset: 40, weight: 21.6, price: 500, load: 0 },
+    ],
+    images: [
+      { color: 'Tarmac', url: '1491432120599581cf711b33c7cca1bae71795a1e6.jpg' },
+      { color: 'Liquid Silver', url: '149143211536e91c493938a143dc0213680f7b138e.jpg' },
+    ],
+    url: 'https://www.hrewheels.com/wheels/hre-flowform/ff01',
   },
 ];
 

@@ -1,5 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { apply, uniq, min, max } from 'rambda';
+import React, { useEffect, useState } from 'react';
 
 import './App.css';
 
@@ -13,6 +12,7 @@ import productSizes from './data/productSizes';
 import productWidths from './data/productWidths';
 import productColors from './data/productColors';
 import productFinishes from './data/productFinishes';
+import productCountries from './data/productCountries';
 
 interface FilterProps<T> {
   title: string;
@@ -65,6 +65,7 @@ function App() {
   const [brandsFilter, setBrandsFilter] = useState<string[]>([]);
   const [sizesFilter, setSizesFilter] = useState<number[]>([]);
   const [widthsFilter, setWidthsFilter] = useState<number[]>([]);
+  const [countriesFilter, setCountriesFilter] = useState<string[]>([]);
   const [sortFilter, setSortFilter] = useState<string>('price');
 
   const [filteredProducts, setFilteredProducts] = useState<typeof products>(products);
@@ -82,6 +83,7 @@ function App() {
       .filter(product => colorsFilter.length === 0 || colorsFilter.some(color => product.colors.includes(color)))
       .filter(product => finishesFilter.length === 0 || finishesFilter.some(finish => product.finishes.includes(finish)))
       .filter(product => brandsFilter.length === 0 || brandsFilter.includes(product.brand))
+      .filter(product => countriesFilter.length === 0 || countriesFilter.includes(product.country ?? ''))
       .sort((a, b) => sortFilter === 'price'
         ? a.details[0].price - b.details[0].price
         : sortFilter === 'weight'
@@ -89,14 +91,14 @@ function App() {
           : (a.details[0].price / (22 - a.details[0].weight)) - (b.details[0].price / (22 - b.details[0].weight)));
 
     setFilteredProducts(filteredProducts);
-  }, [sizesFilter, widthsFilter, colorsFilter, finishesFilter, brandsFilter, sortFilter]);
+  }, [sizesFilter, widthsFilter, colorsFilter, finishesFilter, brandsFilter, countriesFilter, sortFilter]);
 
   return (
     <View className="App">
       <View style={{ background: 'white' }}>
         <View horizontal style={{ width: '100%', maxWidth: 1024, margin: 'auto', padding: '8px 8px' }}>
           <Text style={{ fontSize: 18, fontWeight: 700, minWidth: 256 + 8 }}>FT86 Wheels</Text>
-          <Text style={{ fontSize: 18, fontWeight: 500 }}>Flow-Formed or Forged Wheels around 20 lbs or less for under $2600</Text>
+          <Text style={{ fontSize: 18, fontWeight: 500 }}>Functional, Flow-Formed or Forged Wheels around 20 lbs or less for under $2650</Text>
         </View>
       </View>
       <div style={{ display: 'flex', width: '100%', maxWidth: 1024, margin: 'auto', overflow: 'hidden' }}>
@@ -140,6 +142,14 @@ function App() {
             onSelect={brands => setBrandsFilter(brands)}
             onClear={() => setBrandsFilter([])}
           />
+          <View style={{ height: 16 }} />
+          <Filter
+            title="Country"
+            options={productCountries}
+            selectedValues={countriesFilter}
+            onSelect={countries => setCountriesFilter(countries)}
+            onClear={() => setCountriesFilter([])}
+          />
         </aside>
         <View flex as="main" style={{ padding: '12px 0 0 8px', gap: 8 }}>
           <View horizontal style={{ gap: 8 }}>
@@ -172,6 +182,7 @@ function App() {
                 images={product.images}
                 url={product.url}
                 country={product.country}
+                tests={product.tests}
                 details={product.details}
               />
             ))}

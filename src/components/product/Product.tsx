@@ -13,6 +13,7 @@ interface ProductProps {
   finishes: string[];
   url: string;
   country?: string;
+  tests?: string[];
   images: {
     color: string;
     url: string;
@@ -27,7 +28,7 @@ interface ProductProps {
   }[];
 }
 
-const Product = ({ title, image, colors, finishes, images, url, country, details }: ProductProps) => {
+const Product = ({ title, image, colors, finishes, images, url, country, tests, details }: ProductProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const sizes = uniq(details.map(detail => detail.size));
@@ -56,7 +57,7 @@ const Product = ({ title, image, colors, finishes, images, url, country, details
         <View flex style={{ padding: '16px 24px' }}>
           <View horizontal>
             <Text style={{ fontSize: 24, fontFamily: 'Bebas Neue', flex: 1 }}>{title}</Text>
-            <Text style={{ fontSize: 24, fontFamily: 'Bebas Neue' }}>{country}</Text>
+            <Text style={{ fontSize: 24, fontFamily: 'Bebas Neue' }}>{country} ({tests?.join(' ')})</Text>
           </View>
           <div style={{ height: 8 }} />
           <View horizontal style={{ display: 'flex', gap: 24 }}>

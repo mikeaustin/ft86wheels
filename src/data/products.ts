@@ -59,13 +59,64 @@ const products = [
     ],
     url: 'https://enkei.com/shop/wheels/tuning/t6s',
   },
-  // {
-  //   title: 'Enkei Racing GTC01RR', image: 'ENKEI-GTR-GM-186-WEB.jpg', colors: [0, 5], details: [
-  //     { size: 18, width: 8.5, inset: 42, price: 550 },
-  //     { size: 18, width: 9, inset: 40, price: 570 },
-  //     { size: 18, width: 9.5, inset: 35, price: 600 },
-  //   ]
-  // },
+  {
+    title: 'Enkei Tuning TSP6',
+    brand: 'enkei',
+    colors: ['gray', 'silver'],
+    finishes: ['satin', 'gloss'],
+    // country: 'thailand',
+    tests: ['JWL', 'VIA'],
+    details: [
+      { size: 17, width: 8, inset: 45, weight: 19.95, price: 240, load: 0 },
+      { size: 17, width: 9, inset: 45, weight: 21.7, price: 250, load: 0 },
+      { size: 18, width: 8, inset: 45, weight: 20.15, price: 260, load: 0 },
+      { size: 18, width: 8.5, inset: 45, weight: 20.95, price: 270, load: 0 },
+      { size: 18, width: 9.5, inset: 45, weight: 22.55, price: 280, load: 0 },
+    ],
+    images: [
+      { color: 'Gunmetal', url: 'ENKEI-TOCLIP-TSP6-GM-03.jpg' },
+      { color: 'Hyper Silver', url: 'ENKEI-TOCLIP-TSP6-HS-16.jpg' },
+    ],
+    url: 'https://enkei.com/shop/wheels/tuning/tsp6-2',
+  },
+  {
+    title: 'Enkei Racing GTC01RR',
+    brand: 'enkei',
+    colors: ['gray'],
+    finishes: ['matte'],
+    country: 'japan',
+    tests: ['JWL', 'VIA'],
+    details: [
+      { size: 18, width: 8.5, inset: 42, weight: 19.4, load: 1540, price: 550 },
+      { size: 18, width: 9, inset: 40, weight: 19.5, load: 1540, price: 560 },
+      { size: 18, width: 9.5, inset: 35, weight: 19.6, load: 1540, price: 570 },
+    ],
+    images: [
+      { color: 'Matte Gunmetal', url: 'ENKEI-GTR-GM-186-WEB.jpg' },
+    ],
+    url: 'https://enkei.com/shop/wheels/racingrevolution/gtc01rr',
+  },
+  {
+    title: 'Enkei Tuning Raijin',
+    brand: 'enkei',
+    colors: ['black', 'gray', 'bronze', 'silver'],
+    finishes: ['matte', 'gloss'],
+    country: 'japan',
+    tests: ['JWL', 'VIA'],
+    details: [
+      { size: 18, width: 8, inset: 35, weight: 21, load: 0, price: 250 },
+      { size: 18, width: 8, inset: 45, weight: 21, load: 0, price: 250 },
+      { size: 18, width: 8.5, inset: 45, weight: 21.15, load: 0, price: 260 },
+      { size: 18, width: 9.5, inset: 45, weight: 21.4, load: 0, price: 270 },
+    ],
+    images: [
+      { color: 'Black', url: 'ENKEI-TOCLIP-RAIJIN-BK-122-SM105-1.jpg' },
+      { color: 'Matte Gunmetal', url: 'raijin-black-flat-cap-sold-separately-1.jpg' },
+      { color: 'Bronze', url: 'ENKEI-BRONZE-Raijin-02.jpg' },
+      { color: 'Silver', url: 'ENKEI-TOCLIP-RAIJIN-HS-174-SM125-1.jpg' },
+    ],
+    url: 'https://enkei.com/shop/wheels/tuning/raijin',
+  },
   {
     title: 'APEX ARC-8',
     brand: 'apex',
@@ -418,13 +469,28 @@ const products = [
   },
   {
     title: 'Titan 7 T-R10',
-    brand: 'titan7',
+    brand: 'titan-7',
     colors: ['black', 'gray', 'bronze', 'white'],
     finishes: ['satin', 'gloss'],
     country: 'china',
     details: [
       { size: 18, width: 9, inset: 47, weight: 18.8, price: 535, load: 1433 },
       { size: 18, width: 9.5, inset: 40, weight: 18.9, price: 565, load: 1521 },
+    ],
+    images: [
+      { color: 'Machine Black', url: 'rt10-side-black_42d2cc46-7174-4383-8b92-179c1c88b143_1024x1024@2x.jpg' },
+    ],
+    url: 'https://titan-7.com/products/t-r10-forged-10-spoke-wheel?variant=39957411004504',
+  },
+  {
+    title: 'Titan 7 T-D6',
+    brand: 'titan-7',
+    colors: ['black', 'bronze'],
+    finishes: ['satin', 'gloss'],
+    country: 'china',
+    details: [
+      { size: 17, width: 9, inset: 47, weight: 100, price: 535, load: 0 },
+      { size: 18, width: 9, inset: 47, weight: 100, price: 565, load: 1521 },
     ],
     images: [
       { color: 'Machine Black', url: 'rt10-side-black_42d2cc46-7174-4383-8b92-179c1c88b143_1024x1024@2x.jpg' },

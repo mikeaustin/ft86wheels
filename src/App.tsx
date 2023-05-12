@@ -88,7 +88,7 @@ function App() {
         ? a.details[0].price - b.details[0].price
         : sortFilter === 'weight'
           ? a.details[0].weight - b.details[0].weight
-          : (a.details[0].price / (22 - a.details[0].weight)) - (b.details[0].price / (22 - b.details[0].weight)));
+          : (a.details[0].price / (30 - a.details[0].weight)) - (b.details[0].price / (30 - b.details[0].weight)));
 
     setFilteredProducts(filteredProducts);
   }, [sizesFilter, widthsFilter, colorsFilter, finishesFilter, brandsFilter, countriesFilter, sortFilter]);

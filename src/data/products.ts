@@ -489,8 +489,8 @@ const products = [
     finishes: ['satin', 'gloss'],
     country: 'china',
     details: [
-      { size: 17, width: 9, inset: 47, weight: 100, price: 535, load: 0 },
-      { size: 18, width: 9, inset: 47, weight: 100, price: 565, load: 1521 },
+      { size: 17, width: 9, inset: 47, weight: 30, price: 535, load: 0 },
+      { size: 18, width: 9, inset: 47, weight: 30, price: 565, load: 1521 },
     ],
     images: [
       { color: 'Machine Black', url: 'rt10-side-black_42d2cc46-7174-4383-8b92-179c1c88b143_1024x1024@2x.jpg' },
@@ -617,6 +617,22 @@ const products = [
       { color: 'Liquid Silver', url: '149143211536e91c493938a143dc0213680f7b138e.jpg' },
     ],
     url: 'https://www.hrewheels.com/wheels/hre-flowform/ff01',
+  },
+  {
+    title: 'NEUSPEED RSe11R',
+    brand: 'neuspeed',
+    colors: ['black', 'gray'],
+    finishes: ['gloss'],
+    // country: 'japan',
+    // tests: ['JWL', 'VIA', 'TÜV'],
+    details: [
+      { size: 18, width: 8.5, inset: 34, weight: 19.7, price: 360, load: 1543 },
+    ],
+    images: [
+      { color: 'Gloss Black', url: '8811217B_c7545522-e96b-4573-8a25-00a0c8d03cfb_799x599.jpg.jpg' },
+      { color: 'Gloss Gun Metalic', url: '8811217G_799x599.jpg.jpg' },
+    ],
+    url: 'https://neuspeedrswheels.com/collections/vw-audi/products/neuspeed-rse11r-88112',
   },
 ];
 
